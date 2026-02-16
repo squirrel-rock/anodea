@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anodea Judith - About</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: #2c2c2c;
+            overflow-x: hidden;
+            background: #f8f5f0;
+        }
+
+        /* Blue and Gold Color Palette */
+        :root {
+            --primary-blue: #1e3a5f;
+            --light-blue: #4a90b8;
+            --accent-gold: #d4af37;
+            --light-gold: #f0d98c;
+            --dark-text: #2c2c2c;
+        }
+
+        .parallax-section {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-size: cover;
+            background-position: center;
+            will-change: transform;
+        }
+
+        .content-wrapper {
+            position: relative;
+            z-index: 2;
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 80px 60px;
+            width: 100%;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+        }
+
+        .text-content {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 60px;
+            border-radius: 2px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+            backdrop-filter: blur(10px);
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .text-content h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            color: var(--primary-blue);
+            font-weight: 300;
+            letter-spacing: 1px;
+        }
+
+        .text-content p {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: #4a4a4a;
+            margin-bottom: 20px;
+        }
+
+        .text-content a {
+            color: var(--light-blue);
+            text-decoration: none;
+            border-bottom: 1px solid var(--accent-gold);
+            transition: all 0.3s ease;
+        }
+
+        .text-content a:hover {
+            color: var(--accent-gold);
+            border-bottom-color: var(--light-blue);
+        }
+
+        .image-container {
+            position: relative;
+            height: 600px;
+            border-radius: 2px;
+            overflow: hidden;
+            box-shadow: 0 30px 80px rgba(0, 0, 0, 0.25);
+            border: 3px solid var(--accent-gold);
+        }
+
+        .image-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.3s ease;
+        }
+
+        .image-container:hover img {
+            transform: scale(1.05);
+        }
+
+        /* Alternating layouts - Image LEFT */
+        .layout-image-left .content-wrapper {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .layout-image-left .text-content {
+            order: 2;
+        }
+
+        .layout-image-left .image-container {
+            order: 1;
+        }
+
+        /* Alternating layouts - Image RIGHT */
+        .layout-image-right .content-wrapper {
+            grid-template-columns: 1fr 1fr;
+        }
+
+        .layout-image-right .text-content {
+            order: 1;
+        }
+
+        .layout-image-right .image-container {
+            order: 2;
+        }
+
+        /* Statement banner */
+        .statement-banner {
+            position: relative;
+            height: 60vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            overflow: hidden;
+        }
+
+        .statement-banner::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
+            opacity: 0.5;
+        }
+
+        .statement-banner.gold {
+            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--light-gold) 100%);
+        }
+
+        .statement-text {
+            position: relative;
+            z-index: 2;
+            font-size: 3.5rem;
+            font-weight: 300;
+            color: white;
+            text-align: center;
+            max-width: 1200px;
+            padding: 0 60px;
+            letter-spacing: 2px;
+            line-height: 1.4;
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .statement-banner.gold .statement-text {
+            color: var(--primary-blue);
+            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+        }
+
+        /* Hero section */
+        .hero {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 50%, var(--accent-gold) 100%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            color: white;
+            max-width: 900px;
+            padding: 0 40px;
+        }
+
+        .hero-content h1 {
+            font-size: 5rem;
+            font-weight: 300;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+            text-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        .hero-content .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0.95;
+            font-style: italic;
+        }
+
+        /* Scroll indicator */
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {
+                transform: translateX(-50%) translateY(0);
+            }
+            40% {
+                transform: translateX(-50%) translateY(-10px);
+            }
+            60% {
+                transform: translateX(-50%) translateY(-5px);
+            }
+        }
+
+        /* Final section */
+        .final-call {
+            position: relative;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-gold) 100%);
+            padding: 100px 60px;
+        }
+
+        .final-content {
+            text-align: center;
+            color: white;
+            max-width: 900px;
+        }
+
+        .final-content h2 {
+            font-size: 3rem;
+            font-weight: 300;
+            margin-bottom: 40px;
+            letter-spacing: 2px;
+        }
+
+        .final-content p {
+            font-size: 1.8rem;
+            font-weight: 300;
+            line-height: 1.8;
+            opacity: 0.95;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .content-wrapper {
+                grid-template-columns: 1fr !important;
+                gap: 40px;
+                padding: 60px 30px;
+            }
+
+            .layout-image-left .text-content,
+            .layout-image-left .image-container,
+            .layout-image-right .text-content,
+            .layout-image-right .image-container {
+                order: initial !important;
+            }
+
+            .text-content {
+                padding: 40px;
+            }
+
+            .text-content h2 {
+                font-size: 2rem;
+            }
+
+            .text-content p {
+                font-size: 1rem;
+            }
+
+            .statement-text {
+                font-size: 2rem;
+                padding: 0 30px;
+            }
+
+            .hero-content h1 {
+                font-size: 3rem;
+            }
+
+            .hero-content .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .image-container {
+                height: 400px;
+            }
+        }
+
+        /* Smooth reveal animations */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 1s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Anodea Judith</h1>
+            <p class="subtitle">A prophet for our time—building bridges between the worlds of spirit and the practical work of healing our lives and our culture</p>
+        </div>
+        <div class="scroll-indicator">Scroll to Explore ↓</div>
+    </section>
+
+    <!-- Section 1 - IMAGE LEFT -->
+    <section class="parallax-section layout-image-left" data-speed="0.5">
+        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1600');"></div>
+        <div class="content-wrapper">
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800" alt="Spiritual guidance">
+            </div>
+            <div class="text-content reveal">
+                <p>Anodea Judith, Ph.D., has been called a prophet for our time—building bridges between the worlds of spirit and the practical work of healing our lives and our culture. For more than five decades, she has guided seekers, leaders, and change-makers through the intertwined paths of personal awakening and collective transformation, illuminating a way forward in times of uncertainty with clarity, compassion, and fierce love.</p>
+                <p>With academic training in psychology and religious studies, honed by lived experience, Judith has devoted her life to exploring the sacred architecture that connects mind, body, soul, and culture.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 2 - IMAGE RIGHT -->
+    <section class="parallax-section layout-image-right" data-speed="0.3">
+        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1600');"></div>
+        <div class="content-wrapper">
+            <div class="text-content reveal">
+                <p>She is best known for her pioneering work with the chakra system, bringing this ancient map of consciousness into dialogue with Western psychology, somatic healing, yoga, manifestation, and cultural evolution. Through her work, the chakras became not only a system of personal growth, but a blueprint for transforming society itself.</p>
+            </div>
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=800" alt="Chakra work">
+            </div>
+        </div>
+    </section>
+
+    <!-- Statement Banner 1 -->
+    <section class="statement-banner">
+        <div class="statement-text reveal">
+            From the love of power to the power of love
+        </div>
+    </section>
+
+    <!-- Section 3 - IMAGE LEFT -->
+    <section class="parallax-section layout-image-left" data-speed="0.6">
+        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1600');"></div>
+        <div class="content-wrapper">
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800" alt="Global reach">
+            </div>
+            <div class="text-content reveal">
+                <p>Her books—with well over a million copies in print in 29 languages—have become foundational texts for generations of students and teachers. Her teachings have circled the globe, reaching more than 160 nations through in person workshops, trainings, and online programs, touching countless lives with tools that are both practical and profound.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 4 - IMAGE RIGHT -->
+    <section class="parallax-section layout-image-right" data-speed="0.4">
+        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1600');"></div>
+        <div class="content-wrapper">
+            <div class="text-content reveal">
+                <p>As a keynote speaker, Judith is known for presentations that feel less like lectures and more like journeys—cinematic, image-rich, and story-woven—inviting audiences to face the realities of our time with hope, and to see our current crises as evolutionary drivers rather than collapse.</p>
+            </div>
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800" alt="Speaking">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 5 - IMAGE LEFT -->
+    <section class="parallax-section layout-image-left" data-speed="0.5">
+        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('https://images.unsplash.com/photo-1509475826633-fed577a2c71b?w=1600');"></div>
+        <div class="content-wrapper">
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800" alt="Teaching">
+            </div>
+            <div class="text-content reveal">
+                <p>Founder of <a href="http://www.sacredcentersacademy.com/" target="_blank">Sacred Centers Academy</a>, she now mentors a lineage of teachers carrying her work forward. She also collaborates with visionary networks such as <a href="https://www.evolutionaryleaders.net/" target="_blank">Evolutionary Leaders Council</a>, <a href="https://www.holomovement.net/" target="_blank">The Holomovement</a>, <a href="https://foundingmothers.world/" target="_blank">Founding Mothers Movement</a>, and her own <a href="https://sherisesmovement.com/" target="_blank">She Rises Movement</a>, all dedicated to shaping a more compassionate and life-affirming future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statement Banner 2 - Gold -->
+    <section class="statement-banner gold">
+        <div class="statement-text reveal">
+            Heaven down to earth through spiritual practice
+        </div>
+    </section>
+
+    <!-- Section 6 - IMAGE RIGHT -->
+    <section class="parallax-section layout-image-right" data-speed="0.3">
+        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=1600');"></div>
+        <div class="content-wrapper">
+            <div class="text-content reveal">
+                <p>At the heart of her message is a simple yet radical truth: humanity is passing through an initiatory threshold—a global rite of passage from the love of power to the power of love. Described in her award-winning book <a href="https://www.amazon.com/Global-Heart-Awakens-Humanitys-Passage-ebook/dp/B010P4OAGK/" target="_blank">The Global Heart Awakens</a>, she calls us to mature as a species, and to bring heaven down to earth through spiritual practice and conscious action.</p>
+            </div>
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800" alt="Global heart">
+            </div>
+        </div>
+    </section>
+
+    <!-- Section 7 - IMAGE LEFT -->
+    <section class="parallax-section layout-image-left" data-speed="0.6">
+        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('https://images.unsplash.com/photo-1494253109108-2e30c049369b?w=1600');"></div>
+        <div class="content-wrapper">
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800" alt="Priestess wisdom">
+            </div>
+            <div class="text-content reveal">
+                <p>Ordained as a Priestess in 1985, Judith has vowed to restore the cultural wisdom of the feminine, offering archetypal pathways for women's leadership, rekindling the fire of the Goddess, and working for a more balanced partnership society.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Statement Banner 3 -->
+    <section class="statement-banner">
+        <div class="statement-text reveal">
+            A global rite of passage for humanity
+        </div>
+    </section>
+
+    <!-- Section 8 - IMAGE RIGHT -->
+    <section class="parallax-section layout-image-right" data-speed="0.4">
+        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600');"></div>
+        <div class="content-wrapper">
+            <div class="text-content reveal">
+                <p>Now in her seventies, with the perspective of a lifetime devoted to service, her work carries the quiet authority of experience and the enduring optimism of one who has witnessed countless transformations. Her legacy is not only in the books she has written or the audiences she has reached, but in the thousands of people who have found their healing, their purpose, and awakened their gifts through her teachings.</p>
+            </div>
+            <div class="image-container reveal">
+                <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800" alt="Legacy">
+            </div>
+        </div>
+    </section>
+
+    <!-- Final Call to Action -->
+    <section class="final-call">
+        <div class="final-content reveal">
+            <h2>Her Invitation</h2>
+            <p>We're here to create Heaven on Earth and awaken the global heart as a social organizing system.</p>
+        </div>
+    </section>
+
+    <script>
+        // Parallax scrolling effect
+        function parallaxScroll() {
+            const sections = document.querySelectorAll('.parallax-section');
+            sections.forEach(section => {
+                const speed = section.dataset.speed || 0.5;
+                const bg = section.querySelector('.parallax-bg');
+                const rect = section.getBoundingClientRect();
+                const scrolled = window.pageYOffset;
+                const sectionTop = section.offsetTop;
+                const yPos = -(scrolled - sectionTop) * speed;
+                
+                if (bg) {
+                    bg.style.transform = `translateY(${yPos}px)`;
+                }
+            });
+        }
+
+        // Reveal on scroll
+        function reveal() {
+            const reveals = document.querySelectorAll('.reveal');
+            reveals.forEach(element => {
+                const windowHeight = window.innerHeight;
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < windowHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Smooth statement banner parallax
+        function statementParallax() {
+            const banners = document.querySelectorAll('.statement-banner');
+            banners.forEach(banner => {
+                const rect = banner.getBoundingClientRect();
+                const scrolled = window.pageYOffset;
+                const text = banner.querySelector('.statement-text');
+                
+                if (text && rect.top < window.innerHeight && rect.bottom > 0) {
+                    const progress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+                    const yPos = (progress - 0.5) * 50;
+                    text.style.transform = `translateY(${yPos}px)`;
+                }
+            });
+        }
+
+        // Event listeners
+        window.addEventListener('scroll', () => {
+            parallaxScroll();
+            reveal();
+            statementParallax();
+        });
+
+        window.addEventListener('load', () => {
+            reveal();
+            parallaxScroll();
+        });
+
+        // Initial call
+        reveal();
+        parallaxScroll();
+    </script>
+</body>
+</html>

@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact | Anodea Judith</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="books.html" class="nav-link">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="events.html" class="nav-link">Events</a>
+                    </li>
+                    <li class="nav-item nav-item--dropdown">
+                        <a href="go-deeper.html" class="nav-link nav-link--active">Go Deeper ▾</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="blog.html" class="nav-dropdown-link">Blog</a></li>
+                            <li><a href="freebies.html" class="nav-dropdown-link">Freebies</a></li>
+                            <li><a href="contact.html" class="nav-dropdown-link">Contact</a></li>
+                            <li><a href="https://sherisesmovement.com/" class="nav-dropdown-link nav-dropdown-link--external" target="_blank" rel="noopener">She Rises Movement</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Name Section -->
+    <section class="hero-name-section">
+        <div class="container text-center">
+            <h1 class="hero-name">Anodea Judith</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Contact</h1>
+                <p>Get in touch with us</p>
+            </div>
+        </section>
+
+        <!-- Contact Form Section -->
+        <section class="section">
+            <div class="container">
+                <div class="grid grid--2" style="gap: 60px; align-items: start;">
+
+                    <!-- Contact Form -->
+                    <div>
+                        <h2>Send a Message</h2>
+                        <p class="mb-32">Have a question, inquiry, or want to connect? Fill out the form below and we'll get back to you as soon as possible.</p>
+
+                        <form id="contact-form" action="#" method="POST">
+                            <div class="form-group">
+                                <label for="name" class="form-label">Name <span style="color: #d4a84b;">*</span></label>
+                                <input type="text" id="name" name="name" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email <span style="color: #d4a84b;">*</span></label>
+                                <input type="email" id="email" name="email" class="form-input" required>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="subject" class="form-label">Subject</label>
+                                <select id="subject" name="subject" class="form-select">
+                                    <option value="">Select a subject...</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="speaking">Speaking Engagement</option>
+                                    <option value="workshop">Workshop Hosting</option>
+                                    <option value="media">Media / Press Inquiry</option>
+                                    <option value="books">Books / Publishing</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message <span style="color: #d4a84b;">*</span></label>
+                                <textarea id="message" name="message" class="form-textarea" required placeholder="How can we help you?"></textarea>
+                            </div>
+
+                            <button type="submit" class="btn btn--primary">Send Message</button>
+
+                            <p style="font-size: 13px; color: #666; margin-top: 16px;"><em>* This is a prototype form and will not actually submit.</em></p>
+                        </form>
+                    </div>
+
+                    <!-- Contact Information -->
+                    <div>
+                        <h2>Other Ways to Connect</h2>
+
+                        <div class="mb-32">
+                            <h3>Speaking & Workshop Inquiries</h3>
+                            <p>Interested in having Anodea speak at your event or host a workshop? Please use the contact form and select "Speaking Engagement" or "Workshop Hosting" as your subject.</p>
+                        </div>
+
+                        <div class="mb-32">
+                            <h3>Media & Press</h3>
+                            <p>For interview requests, press inquiries, or to feature Anodea in your publication, please select "Media / Press Inquiry" in the contact form.</p>
+                        </div>
+
+                        <div class="mb-32">
+                            <h3>Sacred Centers Academy</h3>
+                            <p>For questions about training programs and certifications, please contact Sacred Centers Academy directly.</p>
+                            <p><a href="https://sacredcentersacademy.com/" target="_blank" rel="noopener">Visit Sacred Centers Academy ↗</a></p>
+                        </div>
+
+                        <div class="mb-32">
+                            <h3>She Rises Movement</h3>
+                            <p>For information about feminine leadership programs and the She Rises community.</p>
+                            <p><a href="https://sherisesmovement.com/" target="_blank" rel="noopener">Visit She Rises Movement ↗</a></p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <span class="footer-wordmark">Anodea Judith</span>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Author, Teacher, Healer, Evolutionary</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Go Deeper</h4>
+                    <ul class="footer-links">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="freebies.html">Freebies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://sherisesmovement.com/" target="_blank" rel="noopener">She Rises Movement ↗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Get in Touch</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anodea Judith. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

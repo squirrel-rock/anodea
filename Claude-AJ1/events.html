@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | Anodea Judith</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Header -->
+    <header class="site-header">
+        <div class="header-inner">
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li class="nav-item">
+                        <a href="index.html" class="nav-link">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="about.html" class="nav-link">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="books.html" class="nav-link">Books</a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="events.html" class="nav-link nav-link--active">Events</a>
+                    </li>
+                    <li class="nav-item nav-item--dropdown">
+                        <a href="go-deeper.html" class="nav-link">Go Deeper ▾</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="blog.html" class="nav-dropdown-link">Blog</a></li>
+                            <li><a href="freebies.html" class="nav-dropdown-link">Freebies</a></li>
+                            <li><a href="contact.html" class="nav-dropdown-link">Contact</a></li>
+                            <li><a href="https://sherisesmovement.com/" class="nav-dropdown-link nav-dropdown-link--external" target="_blank" rel="noopener">She Rises Movement</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Name Section -->
+    <section class="hero-name-section">
+        <div class="container text-center">
+            <h1 class="hero-name">Anodea Judith</h1>
+        </div>
+    </section>
+
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Events</h1>
+                <p>Speaking engagements, workshops, and transformative experiences</p>
+                <a href="#upcoming-events" class="btn btn--primary mt-24" style="background-color: #e8c875;">View Upcoming Events</a>
+            </div>
+        </section>
+
+        <!-- Speaker Introduction -->
+        <section class="section section--dark">
+            <div class="container">
+                <div class="about-intro">
+                        <div class="about-photo">
+                            <!-- PLACEHOLDER: Replace with Anodea speaking/workshop photo -->
+                            <div class="about-photo--placeholder">
+                                [Anodea Speaking Photo]<br>
+                                assets/images/anodea-speaking.jpg
+                            </div>
+                        </div>
+                        <div class="about-text">
+                            <h2 style="color: #e8c875;">Inspirational Speaker</h2>
+                            <p style="font-size: 18px; color: rgba(255,255,255,0.9);">Dr. Anodea Judith is a dynamic speaker and workshop leader who touches your heart and holds it in eloquent metaphors from beginning to end. Whether it's about healing the human soul, awakening the life force, creating your life on purpose, or addressing the world situation, her talks and pictorial power points bring the entire audience into a deep realm of being and purpose and leave them inspired to make change.</p>
+
+                            <p style="color: rgba(255,255,255,0.9);">In short, she takes you into the realm of the sacred, for indeed, the sacred is at the center of Anodea's purpose, and the center of everything she does.</p>
+                        </div>
+                    </div>
+                </div>
+        </section>
+
+        <!-- Workshop Leader Section -->
+        <section class="section section--tinted">
+            <div class="container">
+                <div class="about-intro" style="flex-direction: row-reverse;">
+                    <div class="about-photo">
+                        <!-- PLACEHOLDER: Replace with workshop photo -->
+                        <div class="about-photo--placeholder">
+                            [Workshop Photo]<br>
+                            assets/images/anodea-workshop.jpg
+                        </div>
+                    </div>
+                    <div class="about-text">
+                        <h2>Workshop Leader</h2>
+                        <p>Anodea has taught on a worldwide circuit for 25 years, nationally and internationally. Her dynamic experiential style takes you on a deep personal journey, with a well-honed combination of physical practice and didactic information.</p>
+
+                        <p>Her workshops are fun, entertaining, participatory, and often life-changing, with students that come back again and again.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quote Section -->
+        <section class="section">
+            <div class="container container--narrow">
+                <div class="quote-block" style="border-left-color: #1a2a4a; background-color: #ffffff;">
+                    <blockquote style="font-size: 20px;">
+                        "Everywhere I go, I see a universal hunger for the sacred – for meaning, purpose, and hope. And to share these sacred moments with others is powerful experience that returns us to reverence for ourselves, each other, and our world."
+                    </blockquote>
+                    <cite>— Anodea Judith</cite>
+                </div>
+            </div>
+        </section>
+
+        <!-- Central Quote -->
+        <section class="section section--dark">
+            <div class="container container--narrow text-center">
+                <blockquote style="font-size: 24px; font-style: italic; color: #e8c875; margin-bottom: 0;">
+                    "It is time we moved from an organizing principle based on the love of power to one based on the power of love."
+                </blockquote>
+            </div>
+        </section>
+
+        <!-- Upcoming Events Section -->
+        <section id="upcoming-events" class="section">
+            <div class="container">
+                <h2 class="text-center mb-48">Upcoming Events</h2>
+
+                <div id="events-list" class="container--narrow" style="margin: 0 auto;">
+                    <!-- Events will be loaded from events.json via JavaScript -->
+                    <p class="text-center">Loading events...</p>
+                </div>
+
+                <div id="no-events" style="display: none;" class="text-center">
+                    <p style="font-size: 18px; color: #666;">No upcoming events scheduled at this time.</p>
+                    <p>Check back soon or <a href="contact.html">sign up for the newsletter</a> to be notified of new events.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Inquire CTA -->
+        <section class="section section--tinted">
+            <div class="container text-center">
+                <h2>Inquire About an Event</h2>
+                <p style="font-size: 18px; max-width: 600px; margin: 0 auto 32px;">Interested in having Anodea speak at your conference, retreat, or special event?</p>
+                <a href="contact.html" class="btn btn--primary btn--large">Get in Touch</a>
+            </div>
+        </section>
+
+        <!-- Sacred Centers Academy -->
+        <section class="section">
+            <div class="container text-center">
+                <h2>Continue Your Training</h2>
+                <p style="font-size: 18px; max-width: 700px; margin: 0 auto 32px;">For those called to go deeper, Sacred Centers Academy offers comprehensive training programs in teaching and practicing Anodea's work. These programs are now led by her core faculty, continuing the lineage of this transformative teaching.</p>
+                <a href="https://sacredcentersacademy.com/" class="btn btn--primary btn--large" target="_blank" rel="noopener">Visit Sacred Centers Academy ↗</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <span class="footer-wordmark">Anodea Judith</span>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Author, Teacher, Healer, Evolutionary</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Go Deeper</h4>
+                    <ul class="footer-links">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="freebies.html">Freebies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://sherisesmovement.com/" target="_blank" rel="noopener">She Rises Movement ↗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Get in Touch</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anodea Judith. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

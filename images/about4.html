@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Anodea Judith</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --midnight-blue: #040b3e;
+            --gold: #eebb38;
+            --light-gold: #f0d87e;
+            --text-dark: #333333;
+            --turquoise: #00becc;
+            --olive: #8d7500;
+            --warm-cream: #ded0c3;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            color: var(--text-dark);
+            background: var(--midnight-blue);
+            overflow-x: hidden;
+            line-height: 1.7;
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section - Cosmic Gold Dress */
+        .hero {
+            height: 100vh;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 120%;
+            background-image: url('/mnt/user-data/uploads/anodea-goldDress.jpg');
+            background-size: cover;
+            background-position: center;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to bottom, rgba(4, 11, 62, 0.3), rgba(4, 11, 62, 0.7));
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 5rem);
+            color: var(--light-gold);
+            font-weight: 300;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            animation: fadeInUp 1.2s ease-out 0.3s forwards;
+        }
+
+        .hero-subtitle {
+            font-size: clamp(1.2rem, 2.5vw, 1.8rem);
+            color: var(--warm-cream);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.5;
+            text-shadow: 1px 1px 10px rgba(0, 0, 0, 0.7);
+            opacity: 0;
+            animation: fadeInUp 1.2s ease-out 0.6s forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Content Sections */
+        .content-section {
+            position: relative;
+            padding: 8rem 2rem;
+            background: white;
+        }
+
+        .content-section.dark {
+            background: var(--midnight-blue);
+            color: var(--warm-cream);
+        }
+
+        .content-wrapper {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .content-text {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.15rem;
+            line-height: 1.9;
+        }
+
+        .content-text p {
+            margin-bottom: 1.8rem;
+        }
+
+        /* Parallax Image Sections */
+        .parallax-section {
+            height: 70vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .parallax-bg {
+            position: absolute;
+            top: -20%;
+            left: 0;
+            width: 100%;
+            height: 140%;
+            background-size: cover;
+            background-position: center;
+            transform: translateZ(0);
+            will-change: transform;
+        }
+
+        .parallax-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(4, 11, 62, 0.4);
+        }
+
+        .parallax-quote {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            padding: 2rem;
+            max-width: 900px;
+        }
+
+        .parallax-quote blockquote {
+            font-size: clamp(1.5rem, 3vw, 2.5rem);
+            color: var(--light-gold);
+            font-style: italic;
+            font-weight: 300;
+            line-height: 1.5;
+            text-shadow: 2px 2px 15px rgba(0, 0, 0, 0.8);
+        }
+
+        /* Split Section - Text and Image */
+        .split-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 600px;
+            background: white;
+        }
+
+        .split-text {
+            padding: 6rem 4rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .split-text h2 {
+            font-size: 2.5rem;
+            color: var(--midnight-blue);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .split-text p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+
+        .split-image {
+            position: relative;
+            overflow: hidden;
+        }
+
+        .split-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transform: scale(1);
+            transition: transform 0.8s ease;
+        }
+
+        .split-section:hover .split-image img {
+            transform: scale(1.05);
+        }
+
+        /* Visionary Section */
+        .visionary-section {
+            padding: 8rem 2rem;
+            background: linear-gradient(135deg, var(--midnight-blue) 0%, #1a1554 100%);
+            text-align: center;
+        }
+
+        .visionary-content {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .visionary-image {
+            max-width: 500px;
+            margin: 0 auto 3rem;
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 1s ease;
+        }
+
+        .visionary-image.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .visionary-image img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+        }
+
+        .visionary-text {
+            color: var(--warm-cream);
+            font-size: 1.2rem;
+            line-height: 1.9;
+        }
+
+        .visionary-text p {
+            margin-bottom: 1.8rem;
+        }
+
+        /* Link styling */
+        a {
+            color: var(--turquoise);
+            text-decoration: none;
+            border-bottom: 1px solid transparent;
+            transition: border-color 0.3s ease;
+        }
+
+        a:hover {
+            border-bottom-color: var(--turquoise);
+        }
+
+        .dark a {
+            color: var(--light-gold);
+        }
+
+        .dark a:hover {
+            border-bottom-color: var(--light-gold);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .split-section {
+                grid-template-columns: 1fr;
+            }
+
+            .split-image {
+                min-height: 400px;
+            }
+
+            .split-text {
+                padding: 4rem 2rem;
+            }
+
+            .content-section {
+                padding: 4rem 1.5rem;
+            }
+
+            .parallax-section {
+                height: 50vh;
+            }
+        }
+
+        /* Fade-in on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 1s ease, transform 1s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-bg"></div>
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Anodea Judith</h1>
+            <p class="hero-subtitle">A prophet for our time—building bridges between the worlds of spirit and the practical work of healing our lives and our culture</p>
+        </div>
+    </section>
+
+    <!-- Opening Bio Section -->
+    <section class="content-section">
+        <div class="content-wrapper">
+            <div class="content-text fade-in">
+                <p>Anodea Judith, Ph.D., has been called a prophet for our time—building bridges between the worlds of spirit and the practical work of healing our lives and our culture. For more than five decades, she has guided seekers, leaders, and change-makers through the intertwined paths of personal awakening and collective transformation, illuminating a way forward in times of uncertainty with clarity, compassion, and fierce love.</p>
+                
+                <p>With academic training in psychology and religious studies, honed by lived experience, Judith has devoted her life to exploring the sacred architecture that connects mind, body, soul, and culture. She is best known for her pioneering work with the chakra system, bringing this ancient map of consciousness into dialogue with Western psychology, somatic healing, yoga, manifestation, and cultural evolution. Through her work, the chakras became not only a system of personal growth, but a blueprint for transforming society itself.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Parallax Quote - Headshot -->
+    <section class="parallax-section">
+        <div class="parallax-bg" style="background-image: url('anodea-bio-pics/Anodea_headshot-0147_retouched-2.jpg');"></div>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-quote">
+            <blockquote>"Her books have become foundational texts for generations of students and teachers"</blockquote>
+        </div>
+    </section>
+
+    <!-- Global Impact Section -->
+    <section class="content-section dark">
+        <div class="content-wrapper">
+            <div class="content-text fade-in">
+                <p>Her books—with well over a million copies in print in 29 languages—have become foundational texts for generations of students and teachers. Her teachings have circled the globe, reaching more than 160 nations through in person workshops, trainings, and online programs, touching countless lives with tools that are both practical and profound.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Split Section - Speaking -->
+    <section class="split-section">
+        <div class="split-text">
+            <h2>Inspirational Speaker</h2>
+            <p>As a keynote speaker, Judith is known for presentations that feel less like lectures and more like journeys—cinematic, image-rich, and story-woven—inviting audiences to face the realities of our time with hope, and to see our current crises as evolutionary drivers rather than collapse.</p>
+        </div>
+        <div class="split-image">
+            <img src="anodea-bio-pics/anodea-event-redGownLg-blueBckgd.png" alt="Anodea Judith speaking">
+        </div>
+    </section>
+
+    <!-- Parallax - Workshop Teaching -->
+    <section class="parallax-section">
+        <div class="parallax-bg" style="background-image: url('anodea-bio-pics/AJWorkshop.jpg');"></div>
+        <div class="parallax-overlay"></div>
+        <div class="parallax-quote">
+            <blockquote>"Touching countless lives with tools that are both practical and profound"</blockquote>
+        </div>
+    </section>
+
+    <!-- Collaboration Section -->
+    <section class="content-section">
+        <div class="content-wrapper">
+            <div class="content-text fade-in">
+                <p>Founder of <a href="http://www.sacredcentersacademy.com/" target="_blank">Sacred Centers Academy</a>, she now mentors a lineage of teachers carrying her work forward. She also collaborates with visionary networks such as <a href="https://www.evolutionaryleaders.net/" target="_blank">Evolutionary Leaders Council</a>, <a href="https://www.holomovement.net/" target="_blank">The Holomovement</a>, <a href="https://foundingmothers.world/" target="_blank">Founding Mothers Movement</a>, and her own <a href="https://sherisesmovement.com/" target="_blank">She Rises Movement</a>, all dedicated to shaping a more compassionate and life-affirming future.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Global Heart Section -->
+    <section class="content-section dark">
+        <div class="content-wrapper">
+            <div class="content-text fade-in">
+                <p>At the heart of her message is a simple yet radical truth: humanity is passing through an initiatory threshold—a global rite of passage from the love of power to the power of love. Described in her award-winning book <em>The Global Heart Awakens</em>, she calls us to mature as a species, and to bring heaven down to earth through spiritual practice and conscious action.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visionary Section -->
+    <section class="visionary-section">
+        <div class="visionary-content">
+            <div class="visionary-image">
+                <img src="anodea-bio-pics/Anodea-butterfly-Visionary.png" alt="Anodea Judith - Visionary">
+            </div>
+            <div class="visionary-text fade-in">
+                <p>Ordained as a Priestess in 1985, Judith has vowed to restore the cultural wisdom of the feminine, offering archetypal pathways for women's leadership, rekindling the fire of the Goddess, and working for a more balanced partnership society.</p>
+                
+                <p>Now in her seventies, with the perspective of a lifetime devoted to service, her work carries the quiet authority of experience and the enduring optimism of one who has witnessed countless transformations. Her legacy is not only in the books she has written or the audiences she has reached, but in the thousands of people who have found their healing, their purpose, and awakened their gifts through her teachings.</p>
+                
+                <p>Her invitation remains the same: We're here to create Heaven on Earth and awaken the global heart as a social organizing system.</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Parallax effect
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            
+            // Hero parallax
+            const heroBg = document.querySelector('.hero-bg');
+            if (heroBg) {
+                heroBg.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+            
+            // Section parallax backgrounds
+            const parallaxBgs = document.querySelectorAll('.parallax-bg');
+            parallaxBgs.forEach(bg => {
+                const section = bg.closest('.parallax-section');
+                const rect = section.getBoundingClientRect();
+                const sectionTop = rect.top;
+                const sectionHeight = rect.height;
+                
+                // Only apply parallax when section is in viewport
+                if (sectionTop < window.innerHeight && sectionTop > -sectionHeight) {
+                    const offset = (window.innerHeight - sectionTop) * 0.3;
+                    bg.style.transform = `translateY(${offset}px)`;
+                }
+            });
+        });
+
+        // Fade-in on scroll
+        const observerOptions = {
+            threshold: 0.15,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Observe visionary image
+        const visionaryImage = document.querySelector('.visionary-image');
+        if (visionaryImage) {
+            observer.observe(visionaryImage);
+        }
+    </script>
+
+</body>
+</html>
