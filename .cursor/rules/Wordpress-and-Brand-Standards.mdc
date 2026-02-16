@@ -1,0 +1,35 @@
+---
+alwaysApply: true
+---
+
+USE WHEN: Creating or modifying any PHP, JS, or CSS files in this project.
+
+Requirements:
+
+Standards: Adhere strictly to WordPress Coding Standards and PHP 8.x best practices.
+
+Asset Logic: Always use get_template_directory_uri() for image and asset paths. Never hardcode local paths.
+
+i18n: Wrap all strings in translation functions (_e(), __()) to ensure the site is translation-ready.
+
+Lightweight UI: Favor Vanilla JavaScript over heavy libraries for parallax and scroll effects.
+
+Color Palette (STRICT):
+
+Color 1 (Primary Blue): #050024 (Default Site Background)
+
+Color 2 (Gold): #eebb38 (Accents & Wordmark)
+
+Color 3 (Light Turquoise): #7dd8db (Text for dark backgrounds)
+
+Color 4 (Dark Grey): #333333 (Text for light backgrounds)
+
+Color 5 (Turquoise Accent): #00becc
+
+Color 6 (Olive): #8d7500 (Footer tone)
+
+Color 7 (Warm Cream): #ded0c3 (Header / Panel background)
+
+Typography: Use Cinzel Decorative for the "ANODEA JUDITH" wordmark. Use Montserrat for all other UI and body text.
+
+Clarity: Ensure images are never upscaled beyond their native resolution (max 2000px width for hero assets) to maintain sharpness for older eyes.
