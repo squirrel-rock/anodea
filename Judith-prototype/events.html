@@ -4,36 +4,276 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Events | Anodea Judith</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* =================================================================
+           Events Page — scoped background treatments
+           Follows the same image-layering + ::before overlay pattern used
+           in the index.html testimonial section.
+           All backgrounds are squirrel_rock* assets from assets/.
+           ================================================================= */
+
+        /* Shared stacking context: every section with an image bg
+           needs position:relative so ::before can be positioned inside it,
+           and its direct .container child lifts above the overlay.         */
+        .page-events .evt-hero,
+        .page-events .evt-speaker,
+        .page-events .evt-workshop,
+        .page-events .evt-quote1,
+        .page-events .evt-quote2,
+        .page-events .evt-upcoming,
+        .page-events .evt-inquire,
+        .page-events .evt-sacred {
+            position: relative;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: scroll; /* no parallax per spec */
+        }
+
+        /* Lift all direct .container children above the overlay */
+        .page-events .evt-hero > .container,
+        .page-events .evt-speaker > .container,
+        .page-events .evt-workshop > .container,
+        .page-events .evt-quote1 > .container,
+        .page-events .evt-quote2 > .container,
+        .page-events .evt-upcoming > .container,
+        .page-events .evt-inquire > .container,
+        .page-events .evt-sacred > .container {
+            position: relative;
+            z-index: 1;
+        }
+
+        /* ── Overlay mixin via ::before ── */
+        .page-events .evt-hero::before,
+        .page-events .evt-speaker::before,
+        .page-events .evt-workshop::before,
+        .page-events .evt-quote1::before,
+        .page-events .evt-quote2::before,
+        .page-events .evt-upcoming::before,
+        .page-events .evt-inquire::before,
+        .page-events .evt-sacred::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── 1. PAGE HEADER (hero) ──
+           squirrel_rock_abstract_BLUE.webp
+           Already dark text on primary-blue; deep overlay reinforces depth. */
+        .page-events .evt-hero {
+            background-image: url('assets/squirrel_rock_abstract_BLUE.webp');
+            background-color: var(--color-primary-blue); /* fallback */
+        }
+        .page-events .evt-hero::before {
+            background: linear-gradient(
+                160deg,
+                rgba(5, 0, 36, 0.82) 0%,
+                rgba(5, 0, 36, 0.70) 55%,
+                rgba(5, 0, 36, 0.78) 100%
+            );
+        }
+
+        /* ── 2. SPEAKER INTRO (section--dark) ──
+           section--dark already sets bg-color:primary-blue; image overlays it.
+           Lighter overlay so image breathes through. */
+        .page-events .evt-speaker {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_no_hard_ed_6997bcab-4552-4eff-a319-9cf7570670e2_2.png');
+        }
+        .page-events .evt-speaker::before {
+            background: linear-gradient(
+                135deg,
+                rgba(5, 0, 36, 0.72) 0%,
+                rgba(5, 0, 36, 0.62) 50%,
+                rgba(5, 0, 36, 0.68) 100%
+            );
+        }
+
+        /* ── 3. WORKSHOP LEADER (section--tinted) ──
+           squirrel_rock_abstract_goldTealSwish.webp
+           Tinted has light bg + dark text → override to light text. */
+        .page-events .evt-workshop {
+            background-image: url('assets/squirrel_rock_abstract_goldTealSwish.webp');
+            background-color: var(--color-primary-blue); /* override #ebebeb */
+        }
+        .page-events .evt-workshop::before {
+            background: linear-gradient(
+                135deg,
+                rgba(5, 0, 36, 0.78) 0%,
+                rgba(5, 0, 36, 0.68) 55%,
+                rgba(5, 0, 36, 0.74) 100%
+            );
+        }
+        /* Text colour overrides for the now-dark workshop section */
+        .page-events .evt-workshop h2,
+        .page-events .evt-workshop h3 {
+            color: var(--color-gold);
+        }
+        .page-events .evt-workshop p {
+            color: rgba(243, 239, 232, 0.90);
+        }
+
+        /* ── 4. QUOTE BLOCK ("Everywhere I go…") ──
+           Plain .section — white bg + dark text → needs dark overlay. */
+        .page-events .evt-quote1 {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_no_hard_edge_7ddeab88-fb02-4fbd-b80d-b3a93a3f37b0.png');
+            background-color: var(--color-primary-blue);
+        }
+        .page-events .evt-quote1::before {
+            background: linear-gradient(
+                135deg,
+                rgba(5, 0, 36, 0.80) 0%,
+                rgba(5, 0, 36, 0.70) 50%,
+                rgba(5, 0, 36, 0.76) 100%
+            );
+        }
+        /* Pull the quote-block card above the overlay and lighten its
+           background to a translucent dark panel so it reads clearly. */
+        .page-events .evt-quote1 .quote-block {
+            position: relative;
+            z-index: 1;
+            background-color: rgba(5, 0, 36, 0.65);
+            border-left-color: var(--color-gold);
+        }
+        .page-events .evt-quote1 .quote-block blockquote {
+            color: var(--color-light-text);
+        }
+        .page-events .evt-quote1 .quote-block cite {
+            color: var(--color-gold);
+        }
+
+        /* ── 5. CENTRAL QUOTE (section--dark) ──
+           Lighter overlay — the existing dark base keeps text safe. */
+        .page-events .evt-quote2 {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_all_soft_s_60c8d04d-1bcd-4ab6-bace-6be067085d22_3.png');
+        }
+        .page-events .evt-quote2::before {
+            background: linear-gradient(
+                135deg,
+                rgba(5, 0, 36, 0.70) 0%,
+                rgba(5, 0, 36, 0.58) 50%,
+                rgba(5, 0, 36, 0.65) 100%
+            );
+        }
+
+        /* ── 6. UPCOMING EVENTS (plain .section) ──
+           Needs dark overlay + light text for the h2 and list content. */
+        .page-events .evt-upcoming {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_no_recogni_63b7b867-0d6d-42ce-8e17-937e2bd51f94_1.png');
+            background-color: var(--color-primary-blue);
+        }
+        .page-events .evt-upcoming::before {
+            background: linear-gradient(
+                135deg,
+                rgba(5, 0, 36, 0.82) 0%,
+                rgba(5, 0, 36, 0.72) 55%,
+                rgba(5, 0, 36, 0.78) 100%
+            );
+        }
+        .page-events .evt-upcoming h2 {
+            color: var(--color-gold);
+        }
+        .page-events .evt-upcoming p,
+        .page-events .evt-upcoming a {
+            color: var(--color-light-text);
+        }
+        .page-events .evt-upcoming a:hover,
+        .page-events .evt-upcoming a:focus {
+            color: var(--color-gold);
+        }
+
+        /* ── 7. INQUIRE CTA (section--tinted) ──
+           Override light bg + dark text to work on dark image. */
+        .page-events .evt-inquire {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_no_recogni_e8831b92-78e2-4cfb-b2cb-083bef72e346_1.png');
+            background-color: var(--color-primary-blue);
+        }
+        .page-events .evt-inquire::before {
+            background: linear-gradient(
+                135deg,
+                rgba(5, 0, 36, 0.78) 0%,
+                rgba(5, 0, 36, 0.68) 55%,
+                rgba(5, 0, 36, 0.74) 100%
+            );
+        }
+        .page-events .evt-inquire h2 {
+            color: var(--color-gold);
+        }
+        .page-events .evt-inquire p {
+            color: rgba(243, 239, 232, 0.90);
+        }
+
+        /* ── 8. SACRED CENTERS / CONTINUE TRAINING (plain .section) ──
+           Gentle overlay for a closing note. */
+        .page-events .evt-sacred {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_no_hard_ed_02e5df04-f7f9-4328-8ba4-5862ddf82700_0.png');
+            background-color: var(--color-primary-blue);
+        }
+        .page-events .evt-sacred::before {
+            background: linear-gradient(
+                135deg,
+                rgba(5, 0, 36, 0.78) 0%,
+                rgba(5, 0, 36, 0.68) 55%,
+                rgba(5, 0, 36, 0.74) 100%
+            );
+        }
+        .page-events .evt-sacred h2 {
+            color: var(--color-gold);
+        }
+        .page-events .evt-sacred p {
+            color: rgba(243, 239, 232, 0.90);
+        }
+
+        /* ── Divider between adjacent image sections ── */
+        .page-events .evt-speaker + .evt-workshop,
+        .page-events .evt-workshop + .evt-quote1,
+        .page-events .evt-quote1 + .evt-quote2,
+        .page-events .evt-quote2 + .evt-upcoming,
+        .page-events .evt-upcoming + .evt-inquire,
+        .page-events .evt-inquire + .evt-sacred {
+            border-top: 1px solid rgba(238, 187, 56, 0.15);
+        }
+
+        /* ── Accessibility: respect prefers-reduced-motion ── */
+        @media (prefers-reduced-motion: reduce) {
+            .page-events .evt-hero,
+            .page-events .evt-speaker,
+            .page-events .evt-workshop,
+            .page-events .evt-quote1,
+            .page-events .evt-quote2,
+            .page-events .evt-upcoming,
+            .page-events .evt-inquire,
+            .page-events .evt-sacred {
+                background-attachment: scroll !important;
+            }
+        }
+    </style>
 </head>
-<body>
+<body class="page-events">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Header -->
+    <!-- Site Header — single row: wordmark left, nav right -->
     <header class="site-header">
         <div class="header-inner">
+            <a href="index.html" class="header-wordmark">Anodea Judith</a>
             <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-
             <nav class="main-nav" aria-label="Main navigation">
                 <ul class="nav-list">
-                    <li class="nav-item">
-                        <a href="index.html" class="nav-link">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="about.html" class="nav-link">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="books.html" class="nav-link">Books</a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="events.html" class="nav-link nav-link--active">Events</a>
-                    </li>
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="books.html" class="nav-link">Books</a></li>
+                    <li class="nav-item"><a href="events.html" class="nav-link nav-link--active">Events</a></li>
                     <li class="nav-item nav-item--dropdown">
-                        <a href="go-deeper.html" class="nav-link">Go Deeper ▾</a>
+                        <a href="go-deeper.html" class="nav-link">Go Deeper &#9662;</a>
                         <ul class="nav-dropdown">
                             <li><a href="blog.html" class="nav-dropdown-link">Blog</a></li>
                             <li><a href="freebies.html" class="nav-dropdown-link">Freebies</a></li>
@@ -46,17 +286,10 @@
         </div>
     </header>
 
-    <!-- Hero Name Section -->
-    <section class="hero-name-section">
-        <div class="container text-center">
-            <h1 class="hero-name">Anodea Judith</h1>
-        </div>
-    </section>
-
     <!-- Main Content -->
     <main id="main-content">
         <!-- Page Header -->
-        <section class="page-header">
+        <section class="page-header evt-hero">
             <div class="container">
                 <h1>Events</h1>
                 <p>Speaking engagements, workshops, and transformative experiences</p>
@@ -65,7 +298,7 @@
         </section>
 
         <!-- Speaker Introduction -->
-        <section class="section section--dark">
+        <section class="section section--dark evt-speaker">
             <div class="container">
                 <div class="about-intro">
                         <div class="about-photo">
@@ -86,7 +319,7 @@
         </section>
 
         <!-- Workshop Leader Section -->
-        <section class="section section--tinted">
+        <section class="section section--tinted evt-workshop">
             <div class="container">
                 <div class="about-intro" style="flex-direction: row-reverse;">
                     <div class="about-photo">
@@ -107,9 +340,9 @@
         </section>
 
         <!-- Quote Section -->
-        <section class="section">
+        <section class="section evt-quote1">
             <div class="container container--narrow">
-                <div class="quote-block" style="border-left-color: #1a2a4a; background-color: #ffffff;">
+                <div class="quote-block" style="border-left-color: var(--color-gold);">
                     <blockquote style="font-size: 20px;">
                         "Everywhere I go, I see a universal hunger for the sacred – for meaning, purpose, and hope. And to share these sacred moments with others is powerful experience that returns us to reverence for ourselves, each other, and our world."
                     </blockquote>
@@ -119,7 +352,7 @@
         </section>
 
         <!-- Central Quote -->
-        <section class="section section--dark">
+        <section class="section section--dark evt-quote2">
             <div class="container container--narrow text-center">
                 <blockquote style="font-size: 24px; font-style: italic; color: #e8c875; margin-bottom: 0;">
                     "It is time we moved from an organizing principle based on the love of power to one based on the power of love."
@@ -128,7 +361,7 @@
         </section>
 
         <!-- Upcoming Events Section -->
-        <section id="upcoming-events" class="section">
+        <section id="upcoming-events" class="section evt-upcoming">
             <div class="container">
                 <h2 class="text-center mb-48">Upcoming Events</h2>
 
@@ -145,7 +378,7 @@
         </section>
 
         <!-- Inquire CTA -->
-        <section class="section section--tinted">
+        <section class="section section--tinted evt-inquire">
             <div class="container text-center">
                 <h2>Inquire About an Event</h2>
                 <p style="font-size: 18px; max-width: 600px; margin: 0 auto 32px;">Interested in having Anodea speak at your conference, retreat, or special event?</p>
@@ -154,7 +387,7 @@
         </section>
 
         <!-- Sacred Centers Academy -->
-        <section class="section">
+        <section class="section evt-sacred">
             <div class="container text-center">
                 <h2>Continue Your Training</h2>
                 <p style="font-size: 18px; max-width: 700px; margin: 0 auto 32px;">For those called to go deeper, Sacred Centers Academy offers comprehensive training programs in teaching and practicing Anodea's work. These programs are now led by her core faculty, continuing the lineage of this transformative teaching.</p>

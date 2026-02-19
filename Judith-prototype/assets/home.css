@@ -1,0 +1,526 @@
+/* ==========================================================================
+   Anodea Judith Homepage Styles
+   Extends css/styles.css — variables inherited from :root there
+   ========================================================================== */
+
+/* Override body for homepage dark background */
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: var(--color-primary-blue);
+    color: var(--color-light-text);
+    line-height: 1.7;
+    overflow-x: hidden;
+}
+
+/* --------------------------------------------------------------------------
+   Hero Section
+   -------------------------------------------------------------------------- */
+.hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.hero-starfield {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.8;
+}
+
+.hero-orbs {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.15;
+    mix-blend-mode: screen;
+}
+
+.hero-content {
+    position: relative;
+    z-index: 10;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    max-width: 1400px;
+    width: 100%;
+    padding: 80px 60px;
+    align-items: center;
+}
+
+.hero-text {
+    text-align: left;
+}
+
+.hero-name {
+    font-family: 'Cinzel Decorative', serif;
+    font-size: 4.5rem;
+    font-weight: 400;
+    color: var(--color-gold);
+    letter-spacing: 0.15em;
+    margin-bottom: 30px;
+    line-height: 1.1;
+}
+
+.hero-subtitle {
+    font-size: 1.8rem;
+    font-weight: 400;
+    color: var(--color-light-text);
+    margin-bottom: 20px;
+    line-height: 1.4;
+}
+
+.hero-tagline {
+    font-size: 1.3rem;
+    font-weight: 300;
+    color: rgba(243, 239, 232, 0.85);
+    letter-spacing: 0.05em;
+    margin-top: 30px;
+}
+
+.hero-image-container {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 500px;
+    height: auto;
+    filter: drop-shadow(0 20px 60px rgba(0, 0, 0, 0.5));
+}
+
+/* --------------------------------------------------------------------------
+   Opening Statement Section
+   -------------------------------------------------------------------------- */
+.opening-statement {
+    background: var(--color-primary-blue);
+    padding: 120px 60px;
+    position: relative;
+    overflow: hidden;
+}
+
+.opening-statement::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('deep_midnight_blue_starfield0.png');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.4;
+    z-index: 0;
+}
+
+.opening-statement::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+    opacity: 0.3;
+    z-index: 1;
+}
+
+.opening-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+}
+
+.opening-text {
+    font-size: 1.4rem;
+    line-height: 2;
+    color: var(--color-light-text);
+    font-weight: 300;
+}
+
+/* --------------------------------------------------------------------------
+   Main Testimonial Section (Seane Corn)
+   -------------------------------------------------------------------------- */
+.main-testimonial {
+    background: var(--color-warm-cream);
+    padding: 120px 60px;
+    color: var(--color-dark-text);
+}
+
+.testimonial-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 70px;
+    align-items: start;
+}
+
+.testimonial-image-wrapper {
+    position: relative;
+}
+
+.testimonial-image {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
+.testimonial-content {
+    padding-top: 20px;
+}
+
+.testimonial-label {
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--color-olive-footer);
+    margin-bottom: 25px;
+}
+
+.testimonial-quote {
+    font-size: 1.15rem;
+    line-height: 1.9;
+    color: var(--color-dark-text);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 30px;
+}
+
+.testimonial-author {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: var(--color-dark-text);
+    margin-top: 20px;
+}
+
+/* --------------------------------------------------------------------------
+   Parallax Testimonial Blocks (small testimonials)
+   Each block is a full-width band with a squirrel_rock background image,
+   a dark overlay, and centered quote text.
+   -------------------------------------------------------------------------- */
+.parallax-testimonials {
+    /* Wrapper for all parallax testimonial blocks */
+}
+
+.parallax-testimonial {
+    position: relative;
+    min-height: 420px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;       /* parallax effect */
+    overflow: hidden;
+}
+
+/* Dark overlay for readability */
+.parallax-testimonial__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        135deg,
+        rgba(5, 0, 36, 0.78) 0%,
+        rgba(5, 0, 36, 0.68) 50%,
+        rgba(5, 0, 36, 0.78) 100%
+    );
+    z-index: 1;
+}
+
+.parallax-testimonial__content {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+    padding: 60px 40px;
+    text-align: center;
+    border: none;
+    margin: 0;
+}
+
+.parallax-testimonial__quote {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    color: var(--color-light-text);
+    font-weight: 300;
+    font-style: italic;
+    margin-bottom: 24px;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Decorative quote marks */
+.parallax-testimonial__content::before {
+    content: '\201C';
+    display: block;
+    font-size: 4rem;
+    color: var(--color-gold);
+    opacity: 0.5;
+    font-family: Georgia, 'Times New Roman', serif;
+    line-height: 1;
+    margin-bottom: 8px;
+}
+
+.parallax-testimonial__author {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-gold);
+    font-style: normal;
+    letter-spacing: 0.06em;
+}
+
+/* Subtle gold line between testimonial blocks */
+.parallax-testimonial + .parallax-testimonial {
+    border-top: 1px solid rgba(238, 187, 56, 0.15);
+}
+
+/* --------------------------------------------------------------------------
+   CTA Section
+   -------------------------------------------------------------------------- */
+.cta-section {
+    background: var(--color-primary-blue);
+    padding: 100px 60px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('deep-color-texture-blur.jpg');
+    background-size: cover;
+    background-position: center;
+    opacity: 0.3;
+    z-index: 0;
+}
+
+.cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 2;
+}
+
+.cta-heading {
+    font-size: 2.5rem;
+    font-weight: 300;
+    color: var(--color-gold);
+    margin-bottom: 50px;
+    letter-spacing: 0.08em;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 20px 50px;
+    background: var(--color-gold);
+    color: var(--color-primary-blue);
+    text-decoration: none;
+    border-radius: 6px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 20px rgba(238, 187, 56, 0.3);
+}
+
+.cta-button:hover {
+    background: #f0d87e;
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(238, 187, 56, 0.5);
+    text-decoration: none;
+}
+
+.cta-button.secondary {
+    background: transparent;
+    color: var(--color-gold);
+    border: 2px solid var(--color-gold);
+    box-shadow: none;
+}
+
+.cta-button.secondary:hover {
+    background: rgba(238, 187, 56, 0.1);
+    border-color: #f0d87e;
+}
+
+/* --------------------------------------------------------------------------
+   Footer
+   -------------------------------------------------------------------------- */
+footer {
+    background: rgba(0, 0, 0, 0.3);
+    padding: 40px 60px;
+    text-align: center;
+    border-top: 1px solid rgba(238, 187, 56, 0.2);
+}
+
+.footer-text {
+    font-size: 0.9rem;
+    color: rgba(243, 239, 232, 0.6);
+    font-weight: 300;
+}
+
+/* --------------------------------------------------------------------------
+   Responsive Design
+   -------------------------------------------------------------------------- */
+@media (max-width: 1024px) {
+    .hero-content {
+        grid-template-columns: 1fr;
+        gap: 60px;
+        text-align: center;
+    }
+
+    .hero-image-container {
+        order: 1;
+    }
+
+    .hero-text {
+        order: 2;
+        text-align: center;
+    }
+
+    .hero-name {
+        font-size: 3.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.5rem;
+    }
+
+    .testimonial-container {
+        grid-template-columns: 1fr;
+        gap: 50px;
+    }
+
+    .testimonial-image-wrapper {
+        max-width: 350px;
+        margin: 0 auto;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-name {
+        font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+        font-size: 1.2rem;
+    }
+
+    .hero-tagline {
+        font-size: 1.1rem;
+    }
+
+    .opening-statement,
+    .main-testimonial,
+    .cta-section {
+        padding: 80px 30px;
+    }
+
+    .opening-text {
+        font-size: 1.2rem;
+    }
+
+    .parallax-testimonial {
+        min-height: 350px;
+        background-attachment: scroll; /* disable parallax on mobile */
+    }
+
+    .parallax-testimonial__quote {
+        font-size: 1.25rem;
+    }
+
+    .parallax-testimonial__content {
+        padding: 50px 24px;
+    }
+
+    .cta-heading {
+        font-size: 2rem;
+    }
+
+    .cta-buttons {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .cta-button {
+        width: 100%;
+        max-width: 300px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-name {
+        font-size: 2rem;
+        letter-spacing: 0.1em;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem;
+    }
+
+    .opening-statement,
+    .main-testimonial,
+    .cta-section {
+        padding: 60px 20px;
+    }
+
+    .parallax-testimonial {
+        min-height: 300px;
+    }
+
+    .parallax-testimonial__quote {
+        font-size: 1.1rem;
+    }
+}
+
+/* --------------------------------------------------------------------------
+   Accessibility — reduced motion
+   -------------------------------------------------------------------------- */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    /* Disable parallax scrolling when user prefers reduced motion */
+    .parallax-testimonial {
+        background-attachment: scroll !important;
+    }
+}
