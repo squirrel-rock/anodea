@@ -148,7 +148,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%);
+            background-color: #050024;
+            background-size: cover;
+            background-position: center;
             overflow: hidden;
         }
 
@@ -159,12 +161,17 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg width="100" height="100" xmlns="http://www.w3.org/2000/svg"><defs><pattern id="grid" width="100" height="100" patternUnits="userSpaceOnUse"><path d="M 100 0 L 0 0 0 100" fill="none" stroke="rgba(212,175,55,0.1)" stroke-width="1"/></pattern></defs><rect width="100" height="100" fill="url(%23grid)"/></svg>');
-            opacity: 0.5;
+            background: linear-gradient(135deg, rgba(5, 0, 36, 0.78) 0%, rgba(5, 0, 36, 0.65) 100%);
+            z-index: 0;
         }
 
+        /* Gold banner keeps warm-toned overlay */
         .statement-banner.gold {
-            background: linear-gradient(135deg, var(--accent-gold) 0%, var(--light-gold) 100%);
+            background-color: #1a1000;
+        }
+
+        .statement-banner.gold::before {
+            background: linear-gradient(135deg, rgba(18, 10, 0, 0.72) 0%, rgba(30, 18, 0, 0.60) 100%);
         }
 
         .statement-text {
@@ -178,12 +185,13 @@
             padding: 0 60px;
             letter-spacing: 2px;
             line-height: 1.4;
-            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
         }
 
+        /* Gold banner: light text on dark overlay */
         .statement-banner.gold .statement-text {
-            color: var(--primary-blue);
-            text-shadow: 0 2px 10px rgba(255, 255, 255, 0.3);
+            color: var(--light-gold);
+            text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
         }
 
         /* Hero section */
@@ -193,7 +201,9 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 50%, var(--accent-gold) 100%);
+            background-color: #050024;
+            background-size: cover;
+            background-position: center;
             overflow: hidden;
         }
 
@@ -204,7 +214,8 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: radial-gradient(circle at 30% 50%, rgba(255, 255, 255, 0.1) 0%, transparent 50%);
+            background: linear-gradient(to bottom, rgba(5, 0, 36, 0.72) 0%, rgba(5, 0, 36, 0.55) 100%);
+            z-index: 1;
         }
 
         .hero-content {
@@ -264,11 +275,27 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--accent-gold) 100%);
+            background-color: #050024;
+            background-size: cover;
+            background-position: center;
             padding: 100px 60px;
+            overflow: hidden;
+        }
+
+        .final-call::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: linear-gradient(135deg, rgba(5, 0, 36, 0.78) 0%, rgba(5, 0, 36, 0.62) 100%);
+            z-index: 0;
         }
 
         .final-content {
+            position: relative;
+            z-index: 1;
             text-align: center;
             color: white;
             max-width: 900px;
@@ -384,7 +411,7 @@
 
     <main id="main-content">
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" style="background-image: url('assets/squirrel_rock_abstract_BLUE.webp');">
         <div class="hero-content">
             <h1>Anodea Judith</h1>
             <p class="subtitle">A prophet for our time—building bridges between the worlds of spirit and the practical work of healing our lives and our culture</p>
@@ -394,10 +421,10 @@
 
     <!-- Section 1 - IMAGE LEFT -->
     <section class="parallax-section layout-image-left" data-speed="0.5">
-        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('https://images.unsplash.com/photo-1499209974431-9dddcece7f88?w=1600');"></div>
+        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_no_recogni_63b7b867-0d6d-42ce-8e17-937e2bd51f94_2.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="image-container reveal">
-                <img src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=800" alt="Spiritual guidance">
+                <img src="assets/Gemini_Generated_Image_s03kibs03kibs03k.png" alt="Spiritual guidance">
             </div>
             <div class="text-content reveal">
                 <p>Anodea Judith, Ph.D., has been called a prophet for our time—building bridges between the worlds of spirit and the practical work of healing our lives and our culture. For more than five decades, she has guided seekers, leaders, and change-makers through the intertwined paths of personal awakening and collective transformation, illuminating a way forward in times of uncertainty with clarity, compassion, and fierce love.</p>
@@ -408,7 +435,7 @@
 
     <!-- Section 2 - IMAGE RIGHT -->
     <section class="parallax-section layout-image-right" data-speed="0.3">
-        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('https://images.unsplash.com/photo-1518531933037-91b2f5f229cc?w=1600');"></div>
+        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_-_no_hard__c8d02134-e69f-4fb9-9fb8-8dd21944308f_0.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="text-content reveal">
                 <p>She is best known for her pioneering work with the chakra system, bringing this ancient map of consciousness into dialogue with Western psychology, somatic healing, yoga, manifestation, and cultural evolution. Through her work, the chakras became not only a system of personal growth, but a blueprint for transforming society itself.</p>
@@ -420,7 +447,7 @@
     </section>
 
     <!-- Statement Banner 1 -->
-    <section class="statement-banner">
+    <section class="statement-banner" style="background-image: url('assets/squirrel_rock_abstract_goldTealSwish.webp');">
         <div class="statement-text reveal">
             From the love of power to the power of love
         </div>
@@ -428,7 +455,7 @@
 
     <!-- Section 3 - IMAGE LEFT -->
     <section class="parallax-section layout-image-left" data-speed="0.6">
-        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=1600');"></div>
+        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_no_hard_ed_6997bcab-4552-4eff-a319-9cf7570670e2_2.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="image-container reveal">
                 <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800" alt="Global reach">
@@ -441,7 +468,7 @@
 
     <!-- Section 4 - IMAGE RIGHT -->
     <section class="parallax-section layout-image-right" data-speed="0.4">
-        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('https://images.unsplash.com/photo-1475721027785-f74eccf877e2?w=1600');"></div>
+        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_no_hard_edge_7ddeab88-fb02-4fbd-b80d-b3a93a3f37b0.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="text-content reveal">
                 <p>As a keynote speaker, Judith is known for presentations that feel less like lectures and more like journeys—cinematic, image-rich, and story-woven—inviting audiences to face the realities of our time with hope, and to see our current crises as evolutionary drivers rather than collapse.</p>
@@ -454,10 +481,10 @@
 
     <!-- Section 5 - IMAGE LEFT -->
     <section class="parallax-section layout-image-left" data-speed="0.5">
-        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('https://images.unsplash.com/photo-1509475826633-fed577a2c71b?w=1600');"></div>
+        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_no_recogniza_c52f3283-afe4-4186-b6cd-048d5fc4ad2a.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="image-container reveal">
-                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=800" alt="Teaching">
+                <img src="assets/Anodea-butterfly-Visionary.png" alt="Anodea Judith - Visionary and Sacred Centers founder">
             </div>
             <div class="text-content reveal">
                 <p>Founder of <a href="http://www.sacredcentersacademy.com/" target="_blank">Sacred Centers Academy</a>, she now mentors a lineage of teachers carrying her work forward. She also collaborates with visionary networks such as <a href="https://www.evolutionaryleaders.net/" target="_blank">Evolutionary Leaders Council</a>, <a href="https://www.holomovement.net/" target="_blank">The Holomovement</a>, <a href="https://foundingmothers.world/" target="_blank">Founding Mothers Movement</a>, and her own <a href="https://sherisesmovement.com/" target="_blank">She Rises Movement</a>, all dedicated to shaping a more compassionate and life-affirming future.</p>
@@ -466,7 +493,7 @@
     </section>
 
     <!-- Statement Banner 2 - Gold -->
-    <section class="statement-banner gold">
+    <section class="statement-banner gold" style="background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_all_soft_s_60c8d04d-1bcd-4ab6-bace-6be067085d22_0.png');">
         <div class="statement-text reveal">
             Heaven down to earth through spiritual practice
         </div>
@@ -474,23 +501,23 @@
 
     <!-- Section 6 - IMAGE RIGHT -->
     <section class="parallax-section layout-image-right" data-speed="0.3">
-        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('https://images.unsplash.com/photo-1502134249126-9f3755a50d78?w=1600');"></div>
+        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_no_recogni_63b7b867-0d6d-42ce-8e17-937e2bd51f94_1.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="text-content reveal">
                 <p>At the heart of her message is a simple yet radical truth: humanity is passing through an initiatory threshold—a global rite of passage from the love of power to the power of love. Described in her award-winning book <a href="https://www.amazon.com/Global-Heart-Awakens-Humanitys-Passage-ebook/dp/B010P4OAGK/" target="_blank">The Global Heart Awakens</a>, she calls us to mature as a species, and to bring heaven down to earth through spiritual practice and conscious action.</p>
             </div>
             <div class="image-container reveal">
-                <img src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?w=800" alt="Global heart">
+                <img src="books/the-global-heart-awakens.jpg" alt="The Global Heart Awakens book">
             </div>
         </div>
     </section>
 
     <!-- Section 7 - IMAGE LEFT -->
     <section class="parallax-section layout-image-left" data-speed="0.6">
-        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('https://images.unsplash.com/photo-1494253109108-2e30c049369b?w=1600');"></div>
+        <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_no_hard_ed_02e5df04-f7f9-4328-8ba4-5862ddf82700_0.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="image-container reveal">
-                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800" alt="Priestess wisdom">
+                <img src="assets/anodea-wonderBlue.jpg" alt="Anodea Judith - Priestess and wisdom keeper">
             </div>
             <div class="text-content reveal">
                 <p>Ordained as a Priestess in 1985, Judith has vowed to restore the cultural wisdom of the feminine, offering archetypal pathways for women's leadership, rekindling the fire of the Goddess, and working for a more balanced partnership society.</p>
@@ -499,7 +526,7 @@
     </section>
 
     <!-- Statement Banner 3 -->
-    <section class="statement-banner">
+    <section class="statement-banner" style="background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_no_recogni_e8831b92-78e2-4cfb-b2cb-083bef72e346_1.png');">
         <div class="statement-text reveal">
             A global rite of passage for humanity
         </div>
@@ -507,19 +534,19 @@
 
     <!-- Section 8 - IMAGE RIGHT -->
     <section class="parallax-section layout-image-right" data-speed="0.4">
-        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?w=1600');"></div>
+        <div class="parallax-bg" style="background: linear-gradient(rgba(74, 144, 184, 0.1), rgba(74, 144, 184, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_all_soft_s_60c8d04d-1bcd-4ab6-bace-6be067085d22_3.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="text-content reveal">
                 <p>Now in her seventies, with the perspective of a lifetime devoted to service, her work carries the quiet authority of experience and the enduring optimism of one who has witnessed countless transformations. Her legacy is not only in the books she has written or the audiences she has reached, but in the thousands of people who have found their healing, their purpose, and awakened their gifts through her teachings.</p>
             </div>
             <div class="image-container reveal">
-                <img src="https://images.unsplash.com/photo-1544027993-37dbfe43562a?w=800" alt="Legacy">
+                <img src="assets/anodea-event-beigeGreenDress-blackBckgd.jpg" alt="Anodea Judith - Legacy and teaching">
             </div>
         </div>
     </section>
 
     <!-- Final Call to Action -->
-    <section class="final-call">
+    <section class="final-call" style="background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_no_hard_ed_5157371e-2f1b-4775-8af2-d738e096a191_3.png');">
         <div class="final-content reveal">
             <h2>Her Invitation</h2>
             <p>We're here to create Heaven on Earth and awaken the global heart as a social organizing system.</p>
