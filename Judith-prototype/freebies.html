@@ -9,7 +9,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css">
 </head>
-<body>
+<body class="page-freebies">
     <a href="#main-content" class="skip-link">Skip to main content</a>
 
     <!-- Site Header — single row: wordmark left, nav right -->
@@ -52,14 +52,14 @@
         </section>
 
         <!-- Introduction -->
-        <section class="section">
+        <section id="freebies-intro" class="section">
             <div class="container container--narrow text-center">
                 <p style="font-size: 18px;">Explore these resources for a taste of Anodea's teachings. From guided meditations to introductory videos, these materials offer a window into the transformative work of the chakra system and energy body.</p>
             </div>
         </section>
 
         <!-- Videos Section -->
-        <section class="section section--tinted">
+        <section id="freebies-videos" class="section section--tinted">
             <div class="container">
                 <h2 class="text-center mb-48">Videos</h2>
 
@@ -67,10 +67,9 @@
                     <!-- Video 1 -->
                     <div class="freebie-card">
                         <div class="freebie-media">
-                            <div class="video-placeholder">
-                                [Video Embed]<br>
-                                Introduction to the Chakras
-                            </div>
+                            <img src="assets/squirrel-rock2/card-images/squirrel_rock_chakra-back.webp"
+                                 alt="Introduction to the Chakras"
+                                 class="freebie-poster">
                         </div>
                         <div class="freebie-content">
                             <h3>Introduction to the Chakras</h3>
@@ -82,10 +81,9 @@
                     <!-- Video 2 -->
                     <div class="freebie-card">
                         <div class="freebie-media">
-                            <div class="video-placeholder">
-                                [Video Embed]<br>
-                                What is Charge?
-                            </div>
+                            <img src="assets/squirrel-rock2/card-images/squirrel_rock_what-is-charge.png"
+                                 alt="What is Charge?"
+                                 class="freebie-poster">
                         </div>
                         <div class="freebie-content">
                             <h3>What is Charge?</h3>
@@ -97,10 +95,9 @@
                     <!-- Video 3 -->
                     <div class="freebie-card">
                         <div class="freebie-media">
-                            <div class="video-placeholder">
-                                [Video Embed]<br>
-                                Grounding Meditation
-                            </div>
+                            <img src="assets/squirrel-rock2/card-images/squirrel_rock_grounding.png"
+                                 alt="Guided Grounding Meditation"
+                                 class="freebie-poster">
                         </div>
                         <div class="freebie-content">
                             <h3>Guided Grounding Meditation</h3>
@@ -112,10 +109,9 @@
                     <!-- Video 4 -->
                     <div class="freebie-card">
                         <div class="freebie-media">
-                            <div class="video-placeholder">
-                                [Video Embed]<br>
-                                The Global Heart
-                            </div>
+                            <img src="assets/squirrel-rock2/card-images/squirrel_rock_waking-global-heart.png"
+                                 alt="Waking the Global Heart: Preview"
+                                 class="freebie-poster">
                         </div>
                         <div class="freebie-content">
                             <h3>Waking the Global Heart: Preview</h3>
@@ -128,7 +124,7 @@
         </section>
 
         <!-- Audio Section -->
-        <section class="section">
+        <section id="freebies-audio" class="section">
             <div class="container">
                 <h2 class="text-center mb-48">Audio</h2>
 
@@ -144,8 +140,10 @@
                         <div class="freebie-content">
                             <h3>Chakra Balancing Meditation</h3>
                             <p>A guided journey through all seven chakras, bringing balance and harmony to your entire energy system.</p>
-                            <span class="freebie-duration">Duration: 25 min</span>
-                            <a href="#" class="btn btn--secondary mt-24" style="display: inline-block;">Download MP3</a>
+                            <div class="audio-meta">
+                                <span class="freebie-duration">Duration: 25 min</span>
+                                <a href="#" class="audio-download">Download MP3</a>
+                            </div>
                         </div>
                     </div>
 
@@ -160,8 +158,10 @@
                         <div class="freebie-content">
                             <h3>Heart Opening Practice</h3>
                             <p>Open your heart chakra with this gentle guided practice focused on compassion and connection.</p>
-                            <span class="freebie-duration">Duration: 18 min</span>
-                            <a href="#" class="btn btn--secondary mt-24" style="display: inline-block;">Download MP3</a>
+                            <div class="audio-meta">
+                                <span class="freebie-duration">Duration: 18 min</span>
+                                <a href="#" class="audio-download">Download MP3</a>
+                            </div>
                         </div>
                     </div>
 
@@ -176,8 +176,10 @@
                         <div class="freebie-content">
                             <h3>Morning Activation</h3>
                             <p>Start your day with this energizing practice to awaken and align your chakras for the day ahead.</p>
-                            <span class="freebie-duration">Duration: 12 min</span>
-                            <a href="#" class="btn btn--secondary mt-24" style="display: inline-block;">Download MP3</a>
+                            <div class="audio-meta">
+                                <span class="freebie-duration">Duration: 12 min</span>
+                                <a href="#" class="audio-download">Download MP3</a>
+                            </div>
                         </div>
                     </div>
 
@@ -192,8 +194,10 @@
                         <div class="freebie-content">
                             <h3>Evening Wind-Down</h3>
                             <p>Release the day's tensions and prepare for restful sleep with this calming chakra practice.</p>
-                            <span class="freebie-duration">Duration: 20 min</span>
-                            <a href="#" class="btn btn--secondary mt-24" style="display: inline-block;">Download MP3</a>
+                            <div class="audio-meta">
+                                <span class="freebie-duration">Duration: 20 min</span>
+                                <a href="#" class="audio-download">Download MP3</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -210,7 +214,7 @@
         </section>
 
         <!-- Newsletter CTA -->
-        <section class="section">
+        <section id="freebies-newsletter" class="section">
             <div class="container text-center">
                 <h2>Keep in Touch</h2>
                 <p style="font-size: 18px; max-width: 600px; margin: 0 auto 32px;">Join the mailing list to receive occasional postings of inspirations, early access to new resources, and updates on upcoming events. I do not share my mailing list.</p>

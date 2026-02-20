@@ -1,0 +1,614 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books by Anodea Judith</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* =================================================================
+           Books Page — light, scholarly layout
+           Uses CSS variables from styles.css :root
+           ================================================================= */
+
+        body.page-books {
+            background: #f8f5f0;
+            color: var(--color-dark-text);
+        }
+
+        /* Featured Hero — dark panel at top */
+        .page-books .books-featured {
+            background: var(--color-primary-blue);
+            color: var(--color-light-text);
+            padding: 80px 40px 100px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-books .books-featured::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background-image:
+                radial-gradient(circle at 20% 30%, rgba(238, 187, 56, 0.06) 0%, transparent 45%),
+                radial-gradient(circle at 80% 70%, rgba(0, 190, 204, 0.04) 0%, transparent 45%);
+            pointer-events: none;
+        }
+
+        .page-books .books-featured::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+            opacity: 0.5;
+        }
+
+        .page-books .featured-inner {
+            max-width: 1400px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 1;
+        }
+
+        .page-books .featured-kicker {
+            font-size: 0.85rem;
+            letter-spacing: 0.25em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .page-books .featured-stats {
+            font-size: 0.95rem;
+            color: rgba(243, 239, 232, 0.65);
+            font-weight: 300;
+            letter-spacing: 0.03em;
+            margin-top: 8px;
+        }
+
+        .page-books .featured-intro {
+            margin-top: 25px;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+            color: rgba(243, 239, 232, 0.82);
+            max-width: 980px;
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .page-books .featured-grid {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .page-books .featured-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(238, 187, 56, 0.15);
+        }
+
+        .page-books .featured-content {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .page-books .featured-label {
+            font-size: 0.8rem;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            font-weight: 600;
+        }
+
+        .page-books .featured-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.4rem;
+            font-weight: 300;
+            color: var(--color-light-text);
+            line-height: 1.25;
+            letter-spacing: 0.02em;
+        }
+
+        .page-books .featured-description {
+            font-size: 1.05rem;
+            color: rgba(243, 239, 232, 0.85);
+            line-height: 1.8;
+            font-weight: 300;
+        }
+
+        .page-books .featured-quote {
+            margin: 8px 0;
+            padding: 0 0 0 28px;
+            border-left: 3px solid var(--color-gold);
+            color: #f0d87e;
+            font-style: italic;
+            font-size: 1.1rem;
+            line-height: 1.75;
+            font-weight: 300;
+        }
+
+        .page-books .featured-button {
+            display: inline-block;
+            background: var(--color-gold);
+            color: var(--color-primary-blue);
+            padding: 16px 44px;
+            font-size: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            border-radius: 4px;
+            text-decoration: none;
+            align-self: flex-start;
+            margin-top: 8px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 18px rgba(238, 187, 56, 0.3);
+        }
+
+        .page-books .featured-button:hover {
+            background: #f0d87e;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 28px rgba(238, 187, 56, 0.45);
+            text-decoration: none;
+        }
+
+        /* Section heading separator */
+        .page-books .books-section-heading {
+            text-align: center;
+            padding: 60px 0 40px;
+        }
+
+        .page-books .books-section-heading h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 300;
+            color: var(--color-primary-blue);
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+        }
+
+        .page-books .books-section-heading h2::after {
+            content: '';
+            position: absolute;
+            bottom: -12px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 2px;
+            background: linear-gradient(90deg, transparent, var(--color-gold), transparent);
+        }
+
+        /* Book cards grid — light background */
+        .page-books .books-grid {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 40px 100px;
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 40px;
+        }
+
+        .page-books .book-card {
+            background: var(--color-primary-blue);
+            border-radius: 4px;
+            padding: 36px;
+            display: grid;
+            grid-template-columns: 180px 1fr;
+            gap: 30px;
+            border: 1px solid rgba(238, 187, 56, 0.2);
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
+            transition: box-shadow 0.3s ease, transform 0.3s ease;
+        }
+
+        .page-books .book-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+        }
+
+        .page-books .book-cover img {
+            width: 100%;
+            height: auto;
+            border-radius: 3px;
+            box-shadow: 0 4px 12px rgba(5, 0, 36, 0.15);
+        }
+
+        .page-books .book-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .page-books .book-tag {
+            display: inline-block;
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--color-light-text);
+            background: rgba(238, 187, 56, 0.2);
+            border: 1px solid rgba(238, 187, 56, 0.35);
+            padding: 4px 10px;
+            border-radius: 3px;
+            margin-bottom: 12px;
+            align-self: flex-start;
+        }
+
+        .page-books .book-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.35rem;
+            font-weight: 600;
+            color: var(--color-light-text);
+            margin-bottom: 12px;
+            line-height: 1.3;
+        }
+
+        .page-books .book-description {
+            font-size: 0.95rem;
+            color: rgba(243, 239, 232, 0.88);
+            line-height: 1.7;
+            margin-bottom: 20px;
+            flex-grow: 1;
+        }
+
+        .page-books .buy-button {
+            display: inline-block;
+            padding: 10px 28px;
+            background: var(--color-gold);
+            color: var(--color-primary-blue);
+            text-decoration: none;
+            border-radius: 4px;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 500;
+            letter-spacing: 0.06em;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+            border: 1px solid var(--color-gold);
+        }
+
+        .page-books .buy-button:hover {
+            background: transparent;
+            color: var(--color-gold);
+            border-color: var(--color-gold);
+            text-decoration: none;
+        }
+
+        /* Books page footer */
+        .page-books .books-footer {
+            background: var(--color-primary-blue);
+            padding: 40px 60px;
+            text-align: center;
+            border-top: 1px solid rgba(238, 187, 56, 0.15);
+        }
+
+        .page-books .books-footer p {
+            font-size: 0.9rem;
+            color: rgba(243, 239, 232, 0.6);
+            font-weight: 300;
+        }
+
+        @media (min-width: 1024px) and (max-width: 1199px) {
+            .page-books .books-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (min-width: 1200px) {
+            .page-books .books-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 900px) {
+            .page-books .featured-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .page-books .featured-cover {
+                max-width: 260px;
+                margin: 0 auto;
+            }
+
+            .page-books .featured-title {
+                font-size: 2rem;
+            }
+
+            .page-books .books-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+                padding: 0 24px 80px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .page-books .books-featured {
+                padding: 60px 24px 80px;
+            }
+
+            .page-books .featured-title {
+                font-size: 1.7rem;
+            }
+
+            .page-books .book-card {
+                grid-template-columns: 1fr;
+                padding: 28px;
+                gap: 20px;
+            }
+
+            .page-books .book-cover {
+                max-width: 180px;
+                margin: 0 auto;
+            }
+
+            .page-books .books-section-heading h2 {
+                font-size: 1.6rem;
+            }
+        }
+body.page-books {
+    background:
+        linear-gradient(
+            to left,
+            #ded0c3 0%,
+            #e6d8cc 25%,
+            #d8c9bc 50%,
+            #e6d8cc 75%,
+            #ded0c3 100%
+        );
+}
+        /* Override global styles.css .book-cover { width: 250px } for book cards */
+.page-books .book-card .book-cover {
+    width: auto;        /* cancels the 250px global width */
+    max-width: 180px;   /* matches your grid first column */
+}
+    </style>
+</head>
+<body class="page-books">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site Header — single row: wordmark left, nav right -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-wordmark">Anodea Judith</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="books.html" class="nav-link nav-link--active">Books</a></li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item nav-item--dropdown">
+                        <a href="go-deeper.html" class="nav-link">Go Deeper &#9662;</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="blog.html" class="nav-dropdown-link">Blog</a></li>
+                            <li><a href="freebies.html" class="nav-dropdown-link">Freebies</a></li>
+                            <li><a href="contact.html" class="nav-dropdown-link">Contact</a></li>
+                            <li><a href="https://sherisesmovement.com/" class="nav-dropdown-link nav-dropdown-link--external" target="_blank" rel="noopener">She Rises Movement</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="main-content">
+        <!-- Featured Book Hero -->
+        <section class="books-featured">
+            <div class="featured-inner">
+                <div class="featured-kicker">Bestselling Author</div>
+                <div class="featured-stats">Over a million books in print · 29 languages · Award-winning classics</div>
+
+                <p class="featured-intro">
+                    With over a million books in print and 25 languages, Anodea Judith's books are best-selling classics, bringing tools for transformation to a world wide audience. With a reputation for clarity, insight, and solid scholarship, her books on chakras, psychology, yoga, manifestation, and social change form a comprehensive body of work that her readers refer to as life changing.
+                </p>
+
+                <div class="featured-grid">
+                    <div class="featured-cover">
+                        <img src="https://sonomaskystudio.net/anodea-books/books/goddess.jpg" alt="Goddess: Blessed Reunions with the Feminine Face of the Divine book cover">
+                    </div>
+                    <div class="featured-content">
+                        <div class="featured-label">Latest Book</div>
+                        <h2 class="featured-title">Goddess: Blessed Reunions with the Feminine Face of the Divine</h2>
+
+                        <p class="featured-description">
+                            Anodea's latest work is poised to become a seminal book on the topic of the re-emergence of the feminine face of God, reaching far beyond the typical understanding of who the Goddess is and sparking a necessary conversation for today.
+                        </p>
+
+                        <blockquote class="featured-quote">
+                            "The Goddess is an essential archetype at the heart of all existence. She is not God in drag or Jehovah in a skirt."
+                        </blockquote>
+
+                        <p class="featured-description">
+                            This book is unique in Goddess literature because it speaks to us on a personal level as well. Utilizing the life cycles of the Mother, Maiden, Crone, and Queen and the mythic stories of the goddesses Demeter, Athena, Isis, Kali, and many others, Anodea demonstrates how people everywhere can directly rekindle their innate connection to the Divine Feminine and bring about the actualization of the Goddess within us all.
+                        </p>
+
+                        <a href="#" class="featured-button">Buy on Amazon</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Heading -->
+        <div class="books-section-heading">
+            <h2>Complete Collection</h2>
+        </div>
+
+        <!-- Books Grid -->
+        <div class="books-grid">
+            <!-- Book 1: Wheels of Life -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/wheels-of-life.jpg" alt="Wheels of Life book cover">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">Required Reading for Course 101</div>
+                        <h3 class="book-title">Wheels of Life</h3>
+                        <p class="book-description">As portals between the physical and spiritual planes, the chakras offer unparalleled opportunities for growth, healing, and transformation. Anodea Judith's classic introduction to the chakra system, which has sold over 300,000 copies, has been completely updated and expanded. It includes revised chapters on relationships, evolution, and healing, and a new section on raising children with healthy chakras.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <!-- Book 2: Creating on Purpose -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/creating-on-purpose.jpg" alt="Creating on Purpose book cover">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">Required Reading for Course 104</div>
+                        <h3 class="book-title">Creating on Purpose</h3>
+                        <p class="book-description">In Creating on Purpose, innovative teachers Anodea Judith and Lion Goodman present a comprehensive, systematic method for realizing your highest aspirations. Shared with thousands in their popular nationwide workshops, this unique, step-by-step approach guides us through a rich study of the inner self, the outer world, and how to connect the two to make your dreams come true.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <!-- Book 3: Chakra Yoga -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/chakra-yoga-book.png" alt="Chakra Yoga book cover">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">Required Reading for Course 201</div>
+                        <h3 class="book-title">Chakra Yoga</h3>
+                        <p class="book-description">Anodea Judith is the world's bestselling author and foremost expert on the chakras. In this inspirational guide, she introduces each of the seven major energy centres in the body and offers practical tools for using this incredible energy system to take charge of your wellbeing, express your true self and navigate your journey towards full-spectrum living.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <!-- Book 4: Charge and the Energy Body -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/charge-and-the-energy-body.jpg" alt="Charge and the Energy Body book cover">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">Required Reading for Course 301</div>
+                        <h3 class="book-title">Charge and the Energy Body</h3>
+                        <p class="book-description">Charge is a word for the basic life force running through us. This force is crucial if we are to meet the challenges of difficult situations, heal past wounds and traumas, and manage the stress of modern life. Even more, it is essential for understanding how to master your own life force and become all you can be.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <!-- Book 5: Eastern Body Western Mind -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/eastern-body-western-mind.jpg" alt="Eastern Body Western Mind book cover">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">Required Reading for Certification</div>
+                        <h3 class="book-title">Eastern Body Western Mind</h3>
+                        <p class="book-description">In Eastern Body, Western Mind, chakra authority Anodea Judith brought a fresh approach to the yoga-based Eastern chakra system, adapting it to the Western framework of Jungian psychology, somatic therapy, childhood developmental theory, and metaphysics and applying the chakra system to important modern social realities and issues such as addiction, codependence, family dynamics, sexuality, and personal empowerment.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <!-- Book 6: Chakras Made Easy -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/chakras-made-easy.jpg" alt="Chakras Made Easy book cover">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">Beginner Friendly</div>
+                        <h3 class="book-title">Chakras Made Easy</h3>
+                        <p class="book-description">Anodea Judith is the world's bestselling author and foremost expert on the chakras. In this inspirational guide, she introduces each of the seven major energy centres in the body and offers practical tools for using this incredible energy system to take charge of your wellbeing, express your true self and navigate your journey towards full-spectrum living.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <!-- Book 7: She Rises Card Deck -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/deck_cards-3d_box.png" alt="She Rises Card Deck">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">Card Deck</div>
+                        <h3 class="book-title">She Rises Card Deck</h3>
+                        <p class="book-description">Awakening Our Female Archetypes of Leadership. This deck features 38 archetypes of female empowerment and leadership, as they reflect the journey of a woman through her many stages of life, from birth to death. Each archetype is expressed through the voice of I, She, and You. The "I" voice speaks from the archetype herself, the "She" section tells you all about her history and standing in the world, while the "You" section gives you advice when you choose that card.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <!-- Book 8: Goddess -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/goddess.jpg" alt="Goddess book cover">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">Featured Book</div>
+                        <h3 class="book-title">Goddess</h3>
+                        <p class="book-description">The Goddess is essential to the heart of all existence. To meet her is to love her and to be embraced by her love in return. Feel her essence and dance her into the wild and free expression of the life force she is. Through the Goddess, you will connect to magic and mystery, engage with love and beauty, and ground yourself in the sacred wholeness of nature.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <!-- Book 9: The Sevenfold Journey -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/the-sevenfold-journey.jpg" alt="The Sevenfold Journey book cover">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">Beginner Friendly</div>
+                        <h3 class="book-title">The Sevenfold Journey</h3>
+                        <p class="book-description">Combining yoga, psychotherapy, movement, and ritual, the authors weave ancient and modern wisdom into a powerful tapestry of techniques for facilitating personal growth, healing, and transformation. Based on their popular Nine-Month Chakra workshops, THE SEVENFOLD JOURNEY provides a step-by-step approach to healing and balancing one's life using contemporary psychotherapeutic techniques, yoga, bioenergetics, journal exercises, meditation, dance, and ritual.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+
+            <!-- Book 10: The Global Heart Awakens -->
+            <div class="book-card">
+                <div class="book-cover">
+                    <img src="https://sonomaskystudio.net/anodea-books/books/the-global-heart-awakens.jpg" alt="The Global Heart Awakens book cover">
+                </div>
+                <div class="book-content">
+                    <div>
+                        <div class="book-tag">The Power of Love</div>
+                        <h3 class="book-title">The Global Heart Awakens</h3>
+                        <p class="book-description">Positing that modern society is an adolescent culture, driven by greed and power and lying on the cusp of an era of spiritual growth and shifting values, this book explores mythic themes in various historical eras to explain the past, present, and future of the human experience. It suggests that the world is facing a rite of passage into adulthood and that a time of cooperation, stabilization, and sharing is approaching.</p>
+                    </div>
+                    <a href="#" class="buy-button">Buy on Amazon</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="books-footer">
+        <p>&copy; 2024 Anodea Judith. All rights reserved.</p>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

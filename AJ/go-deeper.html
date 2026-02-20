@@ -1,0 +1,371 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Go Deeper | Anodea Judith</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* =================================================================
+           Go Deeper – Visual Navigation Hub
+           Scoped to body.page-go-deeper. No global styles altered.
+           ================================================================= */
+
+        body.page-go-deeper {
+            background-color: var(--color-primary-blue);
+        }
+
+        /* ── Hub section wrapper ── */
+        .gd-hub-section {
+            padding: 40px 24px 80px;
+        }
+
+        /* ── CSS grid: 2-up first row, then two full-width rows ──
+           On mobile all four stack to one column.                  */
+        .gd-hub {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        /* ── Panel base — the entire <a> IS the panel ── */
+        .gd-nav-panel {
+            display: block;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
+            border-radius: 4px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            /* Default shadow; lifted on hover */
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.32);
+            /* Smooth scale + shadow transition */
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        /* Full-width panels span both grid columns */
+        .gd-nav-panel--full {
+            grid-column: 1 / -1;
+        }
+
+        /* ── Semi-transparent overlay for readability ──
+           Same gradient approach as Events page sections.          */
+        .gd-nav-panel::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(
+                135deg,
+                rgba(5, 0, 36, 0.80) 0%,
+                rgba(5, 0, 36, 0.68) 55%,
+                rgba(5, 0, 36, 0.74) 100%
+            );
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ── Hover: subtle scale lift (pointer devices only) ── */
+        @media (hover: hover) {
+            .gd-nav-panel:hover {
+                transform: scale(1.02);
+                box-shadow: 0 12px 44px rgba(0, 0, 0, 0.48);
+            }
+        }
+
+        /* ── Active/tap: slight press-down ── */
+        .gd-nav-panel:active {
+            transform: scale(0.99);
+            transition-duration: 120ms;
+            transition-timing-function: ease-in;
+        }
+
+        /* ── Visible focus ring for keyboard users ── */
+        .gd-nav-panel:focus-visible {
+            outline: 2px solid var(--color-gold);
+            outline-offset: 3px;
+        }
+
+        /* ── Panel inner content (sits above the ::before overlay) ── */
+        .gd-nav-panel__content {
+            position: relative;
+            z-index: 1;
+            padding: 44px 40px;
+            display: flex;
+            flex-direction: column;
+            min-height: 260px;
+        }
+
+        /* Full-width panels are a bit shorter — they're wide, not tall */
+        .gd-nav-panel--full .gd-nav-panel__content {
+            min-height: 210px;
+        }
+
+        /* Panel title */
+        .gd-nav-panel__title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.55rem;
+            font-weight: 700;
+            color: var(--color-gold);
+            margin: 0 0 12px;
+            line-height: 1.2;
+        }
+
+        /* Blurb */
+        .gd-nav-panel__blurb {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.95rem;
+            line-height: 1.72;
+            color: var(--color-light-text);
+            margin: 0 0 24px;
+            flex: 1;
+            max-width: 52ch; /* keeps long lines comfortable */
+        }
+
+        /* Full-width panels have a wider blurb cap */
+        .gd-nav-panel--full .gd-nav-panel__blurb {
+            max-width: 72ch;
+        }
+
+        /* Inline CTA label */
+        .gd-nav-panel__cta {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.07em;
+            text-transform: uppercase;
+            color: var(--color-gold);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            /* Subtle underline drawn by border so it stays controllable */
+            border-bottom: 1px solid rgba(238, 187, 56, 0.4);
+            padding-bottom: 2px;
+        }
+
+        /* ── Individual panel background images ──
+           Only images NOT already used on Events page.              */
+
+        /* Online Courses */
+        .gd-nav-panel--courses {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_no_recogni_63b7b867-0d6d-42ce-8e17-937e2bd51f94_2.png');
+        }
+
+        /* Freebies */
+        .gd-nav-panel--freebies {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_-_no_hard__c8d02134-e69f-4fb9-9fb8-8dd21944308f_0.png');
+        }
+
+        /* She Rises Movement */
+        .gd-nav-panel--sherises {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_no_recogniza_c52f3283-afe4-4186-b6cd-048d5fc4ad2a.png');
+        }
+
+        /* Contact */
+        .gd-nav-panel--contact {
+            background-image: url('assets/squirrel_rock_abstract_background_for_text_overlay_all_soft_s_60c8d04d-1bcd-4ab6-bace-6be067085d22_0.png');
+        }
+
+        /* ── Divider between page-header and hub ── */
+        .gd-rule {
+            border: none;
+            border-top: 1px solid rgba(238, 187, 56, 0.15);
+            margin: 0;
+        }
+
+        /* ================================================================
+           Mobile: single-column stack (≤ 680px)
+           ================================================================ */
+        @media (max-width: 680px) {
+            .gd-hub {
+                grid-template-columns: 1fr;
+                gap: 16px;
+            }
+
+            .gd-nav-panel--full {
+                grid-column: 1;
+            }
+
+            .gd-nav-panel__content {
+                padding: 32px 24px;
+                min-height: 200px;
+            }
+
+            .gd-nav-panel--full .gd-nav-panel__content {
+                min-height: 200px;
+            }
+
+            .gd-nav-panel__title {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* ================================================================
+           Reduced motion: disable all transform transitions
+           ================================================================ */
+        @media (prefers-reduced-motion: reduce) {
+            .gd-nav-panel {
+                transition: none;
+            }
+
+            .gd-nav-panel:hover,
+            .gd-nav-panel:active {
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body class="page-go-deeper">
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+
+    <!-- Site Header — single row: wordmark left, nav right -->
+    <header class="site-header">
+        <div class="header-inner">
+            <a href="index.html" class="header-wordmark">Anodea Judith</a>
+            <button class="mobile-menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <nav class="main-nav" aria-label="Main navigation">
+                <ul class="nav-list">
+                    <li class="nav-item"><a href="index.html" class="nav-link">Home</a></li>
+                    <li class="nav-item"><a href="about.html" class="nav-link">About</a></li>
+                    <li class="nav-item"><a href="books.html" class="nav-link">Books</a></li>
+                    <li class="nav-item"><a href="events.html" class="nav-link">Events</a></li>
+                    <li class="nav-item nav-item--dropdown">
+                        <a href="go-deeper.html" class="nav-link nav-link--active">Go Deeper &#9662;</a>
+                        <ul class="nav-dropdown">
+                            <li><a href="blog.html" class="nav-dropdown-link">Blog</a></li>
+                            <li><a href="freebies.html" class="nav-dropdown-link">Freebies</a></li>
+                            <li><a href="contact.html" class="nav-dropdown-link">Contact</a></li>
+                            <li><a href="https://sherisesmovement.com/" class="nav-dropdown-link nav-dropdown-link--external" target="_blank" rel="noopener">She Rises Movement</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main id="main-content">
+
+        <!-- Page Header -->
+        <section class="page-header">
+            <div class="container">
+                <h1>Go Deeper</h1>
+                <p>More ways to engage with Anodea's work and teachings</p>
+            </div>
+        </section>
+
+        <hr class="gd-rule">
+
+        <!-- Navigation Hub -->
+        <section class="gd-hub-section" aria-label="Go Deeper navigation">
+            <!--
+                Layout (desktop):
+                  Row 1 ── [Online Courses] [Freebies]   (2-up, 1fr each)
+                  Row 2 ── [She Rises Movement]           (full-width)
+                  Row 3 ── [Contact]                      (full-width)
+
+                Each <a> is the entire clickable panel.
+                No JS click handlers — pure HTML navigation.
+            -->
+            <div class="gd-hub">
+
+                <!-- ── Panel 1: Online Courses ── -->
+                <a class="gd-nav-panel gd-nav-panel--courses"
+                   href="https://www.sacredcentersacademy.com/shop"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <div class="gd-nav-panel__content">
+                        <h2 class="gd-nav-panel__title">Online Courses</h2>
+                        <p class="gd-nav-panel__blurb">Experience Anodea's teaching from anywhere in the world. Her online courses have reached students in over 160 countries, offering deep dives into the chakra system, energy work, and personal transformation.</p>
+                        <span class="gd-nav-panel__cta">Explore Courses ↗</span>
+                    </div>
+                </a>
+
+                <!-- ── Panel 2: Freebies ── -->
+                <a class="gd-nav-panel gd-nav-panel--freebies"
+                   href="freebies.html">
+                    <div class="gd-nav-panel__content">
+                        <h2 class="gd-nav-panel__title">Freebies</h2>
+                        <p class="gd-nav-panel__blurb">Free videos, audio recordings, and resources to support your journey.</p>
+                        <span class="gd-nav-panel__cta">Explore Freebies →</span>
+                    </div>
+                </a>
+
+                <!-- ── Panel 3: She Rises Movement (full-width) ── -->
+                <a class="gd-nav-panel gd-nav-panel--sherises gd-nav-panel--full"
+                   href="https://sherisesmovement.com/"
+                   target="_blank"
+                   rel="noopener noreferrer">
+                    <div class="gd-nav-panel__content">
+                        <h2 class="gd-nav-panel__title">She Rises Movement</h2>
+                        <p class="gd-nav-panel__blurb">Explore the She Rises Card Deck and be a part of Anodea's initiative for empowering feminine leadership and bringing the cultural values of the feminine into the world. Join a community of women rising into their power.</p>
+                        <span class="gd-nav-panel__cta">Visit She Rises ↗</span>
+                    </div>
+                </a>
+
+                <!-- ── Panel 4: Contact (full-width) ── -->
+                <a class="gd-nav-panel gd-nav-panel--contact gd-nav-panel--full"
+                   href="contact.html">
+                    <div class="gd-nav-panel__content">
+                        <h2 class="gd-nav-panel__title">Contact</h2>
+                        <p class="gd-nav-panel__blurb">Get in touch for speaking inquiries, workshop hosting, media requests, or general questions. We'd love to hear from you.</p>
+                        <span class="gd-nav-panel__cta">Get in Touch →</span>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer (unchanged) -->
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <span class="footer-wordmark">Anodea Judith</span>
+                    <p style="font-size: 14px; color: rgba(255,255,255,0.7);">Author, Teacher, Healer, Evolutionary</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="about.html">About</a></li>
+                        <li><a href="books.html">Books</a></li>
+                        <li><a href="events.html">Events</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Go Deeper</h4>
+                    <ul class="footer-links">
+                        <li><a href="blog.html">Blog</a></li>
+                        <li><a href="freebies.html">Freebies</a></li>
+                        <li><a href="contact.html">Contact</a></li>
+                        <li><a href="https://sherisesmovement.com/" target="_blank" rel="noopener">She Rises Movement ↗</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Connect</h4>
+                    <ul class="footer-links">
+                        <li><a href="contact.html">Get in Touch</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Anodea Judith. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html>

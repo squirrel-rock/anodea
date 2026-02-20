@@ -1,0 +1,45 @@
+{
+  "events": [
+    {
+      "id": "event-001",
+      "title": "Chakra Intensive Weekend Retreat",
+      "date": "2025-03-15",
+      "location": "Esalen Institute, Big Sur, CA",
+      "description": "A deep dive into the seven chakras as a map for personal development, healing, and spiritual awakening. This immersive weekend combines physical practice, meditation, and transformational teaching.",
+      "link": "https://example.com/event-chakra-intensive"
+    },
+    {
+      "id": "event-002",
+      "title": "Charge & the Energy Body Workshop",
+      "date": "2025-04-22",
+      "location": "Kripalu Center, Stockbridge, MA",
+      "description": "Learn to work with your life force energy to find balance, vitality, and authentic expression. Discover how the energy body relates to emotions, beliefs, and relationships.",
+      "link": "https://example.com/event-charge-energy"
+    },
+    {
+      "id": "event-003",
+      "title": "The Goddess Within: Women's Leadership Retreat",
+      "date": "2025-05-10",
+      "location": "Online via Zoom",
+      "description": "Explore the Divine Feminine through mythology, ritual, and embodied practice. Connect with a community of women rising into their power and purpose.",
+      "link": "https://example.com/event-goddess-retreat"
+    },
+    {
+      "id": "event-004",
+      "title": "Waking the Global Heart Keynote",
+      "date": "2025-06-08",
+      "location": "Science and Nonduality Conference, San Jose, CA",
+      "description": "A powerful keynote presentation exploring humanity's evolution from an organizing principle based on power to one based on love. With stunning visuals and compelling storytelling.",
+      "link": "https://example.com/event-global-heart-keynote"
+    }
+  ],
+  "_instructions": {
+    "note": "Edit this JSON file to add, modify, or remove events.",
+    "date_format": "Use YYYY-MM-DD format",
+    "tips": [
+      "Past events are automatically hidden",
+      "Events sort by date (soonest first)",
+      "Home page shows max 3 events"
+    ]
+  }
+}
