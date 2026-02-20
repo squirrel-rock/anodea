@@ -371,6 +371,25 @@
             opacity: 1;
             transform: translateY(0);
         }
+
+        /* Butterfly/visionary image — show full figure, no head crop */
+        .visionary-tall {
+            object-fit: contain;
+            object-position: top center;
+            background: rgba(5, 0, 36, 0.25);
+        }
+
+        @media (max-width: 768px) {
+            .image-container:has(.visionary-tall) {
+                height: 320px;
+            }
+        }
+
+        /* Final invitation section — gold text so it reads on dark background */
+        .final-call .final-content h2,
+        .final-call .final-content p {
+            color: #eebb38;
+        }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -441,7 +460,7 @@
                 <p>She is best known for her pioneering work with the chakra system, bringing this ancient map of consciousness into dialogue with Western psychology, somatic healing, yoga, manifestation, and cultural evolution. Through her work, the chakras became not only a system of personal growth, but a blueprint for transforming society itself.</p>
             </div>
             <div class="image-container reveal">
-                <img src="https://images.unsplash.com/photo-1545389336-cf090694435e?w=800" alt="Chakra work">
+                <img src="books/wheels-of-life.jpg" alt="Wheels of Life — chakra system">
             </div>
         </div>
     </section>
@@ -458,7 +477,7 @@
         <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_no_hard_ed_6997bcab-4552-4eff-a319-9cf7570670e2_2.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="image-container reveal">
-                <img src="https://images.unsplash.com/photo-1519682337058-a94d519337bc?w=800" alt="Global reach">
+                <img src="assets/books.jpg" alt="Anodea Judith's books in 29 languages" class="no-crop-contain">
             </div>
             <div class="text-content reveal">
                 <p>Her books—with well over a million copies in print in 29 languages—have become foundational texts for generations of students and teachers. Her teachings have circled the globe, reaching more than 160 nations through in person workshops, trainings, and online programs, touching countless lives with tools that are both practical and profound.</p>
@@ -474,7 +493,7 @@
                 <p>As a keynote speaker, Judith is known for presentations that feel less like lectures and more like journeys—cinematic, image-rich, and story-woven—inviting audiences to face the realities of our time with hope, and to see our current crises as evolutionary drivers rather than collapse.</p>
             </div>
             <div class="image-container reveal">
-                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?w=800" alt="Speaking">
+                <img src="assets/anodea-event-redGown-blueBckgd.png" alt="Anodea Judith speaking at an event">
             </div>
         </div>
     </section>
@@ -484,7 +503,7 @@
         <div class="parallax-bg" style="background: linear-gradient(rgba(30, 58, 95, 0.1), rgba(30, 58, 95, 0.2)), url('assets/squirrel_rock_abstract_background_for_text_overlay_no_recogniza_c52f3283-afe4-4186-b6cd-048d5fc4ad2a.png'); background-size: cover; background-position: center;"></div>
         <div class="content-wrapper">
             <div class="image-container reveal">
-                <img src="assets/Anodea-butterfly-Visionary.png" alt="Anodea Judith - Visionary and Sacred Centers founder">
+                <img src="assets/Anodea-butterfly-Visionary.png" alt="Anodea Judith - Visionary and Sacred Centers founder" class="visionary-tall">
             </div>
             <div class="text-content reveal">
                 <p>Founder of <a href="http://www.sacredcentersacademy.com/" target="_blank">Sacred Centers Academy</a>, she now mentors a lineage of teachers carrying her work forward. She also collaborates with visionary networks such as <a href="https://www.evolutionaryleaders.net/" target="_blank">Evolutionary Leaders Council</a>, <a href="https://www.holomovement.net/" target="_blank">The Holomovement</a>, <a href="https://foundingmothers.world/" target="_blank">Founding Mothers Movement</a>, and her own <a href="https://sherisesmovement.com/" target="_blank">She Rises Movement</a>, all dedicated to shaping a more compassionate and life-affirming future.</p>
@@ -507,7 +526,7 @@
                 <p>At the heart of her message is a simple yet radical truth: humanity is passing through an initiatory threshold—a global rite of passage from the love of power to the power of love. Described in her award-winning book <a href="https://www.amazon.com/Global-Heart-Awakens-Humanitys-Passage-ebook/dp/B010P4OAGK/" target="_blank">The Global Heart Awakens</a>, she calls us to mature as a species, and to bring heaven down to earth through spiritual practice and conscious action.</p>
             </div>
             <div class="image-container reveal">
-                <img src="books/the-global-heart-awakens.jpg" alt="The Global Heart Awakens book">
+                <img src="assets/Anodea-workshops-IMG_1730.jpg" alt="Anodea Judith workshop">
             </div>
         </div>
     </section>

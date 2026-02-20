@@ -1430,3 +1430,22 @@ body.page-freebies .audio-download:focus-visible {
         transition: none;
     }
 }
+
+/* --------------------------------------------------------------------------
+   About page — books collage should never crop
+   (Overrides global .image-container img rules for this class only)
+   -------------------------------------------------------------------------- */
+.image-container .no-crop-contain {
+    width: 100%;
+    height: 260px;
+    object-fit: contain;
+    object-position: center;
+    display: block;
+    background: rgba(5, 0, 36, 0.18);
+}
+
+@media (max-width: 768px) {
+    .image-container .no-crop-contain {
+        height: 200px;
+    }
+}
